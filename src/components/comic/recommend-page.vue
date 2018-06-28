@@ -1,15 +1,15 @@
 <template>
-  <div class="recommend-swipe">
-    <van-swipe :autoplay="3000">
-        <van-swipe-item v-for="(image, index) in images" :key="index">
-            <img v-lazy="image" />
-        </van-swipe-item>
-    </van-swipe>
-  </div>
+<div class="recommend-page">
+  <mt-swipe :auto="4000">
+         <mt-swipe-item>1</mt-swipe-item>
+  <mt-swipe-item>2</mt-swipe-item>
+  <mt-swipe-item>3</mt-swipe-item>
+    </mt-swipe>
+</div>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from "vant";
+import { Swipe, SwipeItem } from 'mint-ui';
 export default {
   data() {
     return {
