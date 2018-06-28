@@ -1,71 +1,25 @@
 <template>
   <div class="recommend-swipe">
-    <h1 class="page-title">Swipe</h1>
-    <p class="page-swipe-desc">基础用法</p>
-    <mt-swipe :auto="4000">
-      <mt-swipe-item class="slide1">1</mt-swipe-item>
-      <mt-swipe-item class="slide2">2</mt-swipe-item>
-      <mt-swipe-item class="slide3">3</mt-swipe-item>
-    </mt-swipe>
-
-    <p class="page-swipe-desc">隐藏 indicators</p>
-    <mt-swipe :show-indicators="false">
-      <mt-swipe-item class="slide1">1</mt-swipe-item>
-      <mt-swipe-item class="slide2">2</mt-swipe-item>
-      <mt-swipe-item class="slide3">3</mt-swipe-item>
-    </mt-swipe>
-
-    <p class="page-swipe-desc">取消自动播放</p>
-    <mt-swipe :auto="0">
-      <mt-swipe-item class="slide1">1</mt-swipe-item>
-      <mt-swipe-item class="slide2">2</mt-swipe-item>
-      <mt-swipe-item class="slide3">3</mt-swipe-item>
-    </mt-swipe>
-
-    <p class="page-swipe-desc">设置默认显示页</p>
-    <mt-swipe :auto="0" :defaultIndex="1">
-      <mt-swipe-item class="slide1">1</mt-swipe-item>
-      <mt-swipe-item class="slide2">2</mt-swipe-item>
-      <mt-swipe-item class="slide3">3</mt-swipe-item>
-    </mt-swipe>
-
-    <p class="page-swipe-desc">单个幻灯片</p>
-    <mt-swipe :show-indicators="false">
-      <mt-swipe-item class="slide1">SINGLE SLIDE</mt-swipe-item>
-    </mt-swipe>
+    <van-swipe :autoplay="3000">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+            <img v-lazy="image" />
+        </van-swipe-item>
+    </van-swipe>
   </div>
 </template>
 
-<style lang="less">
-  @component-namespace page {
-    @component swipe {
-      @descendent desc {
-        text-align: center;
-        color: #666;
-        margin-bottom: 5px;
-      }
-      .mint-swipe {
-        height: 200px;
-        color: #fff;
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .mint-swipe-item {
-        line-height: 200px;
-      }
-      .slide1 {
-        background-color: #0089dc;
-        color: #fff;
-      }
-      .slide2 {
-        background-color: #ffd705;
-        color: #000;
-      }
-      .slide3 {
-        background-color: #ff2d4b;
-        color: #fff;
-      }
-    }
+<script>
+import { Swipe, SwipeItem } from "vant";
+export default {
+  data() {
+    return {
+      images: [
+        "https://img.yzcdn.cn/public_files/2017/09/05/3bd347e44233a868c99cf0fe560232be.jpg",
+        "https://img.yzcdn.cn/public_files/2017/09/05/c0dab461920687911536621b345a0bc9.jpg",
+        "https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg",
+        "https://img.yzcdn.cn/public_files/2017/09/05/fd08f07665ed67d50e11b32a21ce0682.jpg"
+      ]
+    };
   }
-</style>
+};
+</script>

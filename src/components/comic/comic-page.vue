@@ -8,7 +8,7 @@
     <div class="page-tab-container">
       <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable>
         <mt-tab-container-item id="tab-container1">          
-            <!-- <recommend-page/> -->
+            <recommend-page/>
         </mt-tab-container-item>
         <mt-tab-container-item id="tab-container2">
           <mt-cell v-for="n in 5" title="tab-container 2" key="n"></mt-cell>
@@ -22,10 +22,10 @@
 </template>
 
 <script>
-// import RecommendPage from "@/components/comic/recommend-page";
+import RecommendPage from "@/components/comic/recommend-page";
 export default {
   components: {
-    // RecommendPage
+    RecommendPage
   },
   name: "page-tab-container",
   data() {
