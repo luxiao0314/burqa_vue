@@ -6,18 +6,13 @@
           <comic-page/>
         </mt-tab-container-item>
         <mt-tab-container-item id="新闻">
-          <mt-cell v-for="n in 5" :title="'新闻 ' + n" key="n"/>
+          <news-page/>
         </mt-tab-container-item>
         <mt-tab-container-item id="轻小说">
-          <mt-cell v-for="n in 7" :title="'轻小说 ' + n" key="n"/>
+          <novel-page/>
         </mt-tab-container-item>
         <mt-tab-container-item id="我的">
-          <div class="page-part">
-            <mt-cell v-for="n in 12" :title="'我的 ' + n" key="n"/>
-          </div>
-          <router-link to="/">
-            <mt-button type="danger" size="large">退出</mt-button>
-          </router-link>
+          <mine-page/>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
@@ -45,9 +40,15 @@
 
 <script>
 import ComicPage from '@/components/comic/comic-page'
+import NewsPage from '@/components/news/news-page'
+import NovelPage from '@/components/novel/novel-page'
+import MinePage from '@/components/mine/mine-page'
 export default {
   components:{
-    ComicPage
+    ComicPage,
+    NewsPage,
+    NovelPage,
+    MinePage
   },
   name: "index",
   data() {

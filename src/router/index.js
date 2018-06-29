@@ -8,11 +8,9 @@ Vue.use(MintUI)
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      component: index
-    }
-  ]
+  routes: [{
+    path: '/',
+    name: 'index',
+    component: index
+  }]
 })

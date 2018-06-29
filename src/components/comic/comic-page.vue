@@ -10,34 +10,39 @@
 
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
-    <mt-tab-container-item id="1">
-        <recommend-page/>
-    </mt-tab-container-item>
-    <mt-tab-container-item id="2">
-        <mt-cell v-for="n in 4" :title="'更新 ' + n" key="n"/>
-    </mt-tab-container-item>
-    <mt-tab-container-item id="3">
-        <mt-cell v-for="n in 6" :title="'选项 ' + n" key="n"/>
-    </mt-tab-container-item>
-    <mt-tab-container-item id="4">
-        <mt-cell v-for="n in 6" :title="'排行 ' + n" key="n"/>
-    </mt-tab-container-item>
-    <mt-tab-container-item id="5">
-        <mt-cell v-for="n in 6" :title="'排行 ' + n" key="n"/>
-        <!-- <subject-page/> -->
-    </mt-tab-container-item>
+      <mt-tab-container-item id="1">
+          <recommend-page/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="2">
+          <update-page/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="3">
+          <classify-page/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="4">
+          <rank-page/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="5">
+          <subject-page/>
+      </mt-tab-container-item>
     </mt-tab-container>
   </div>
 </template>
 
 <script>
 import RecommendPage from "@/components/comic/recommend-page";
-// import SubjectPage from "@/components/comic/subject-page";
+import SubjectPage from "@/components/comic/subject-page";
+import UpdatePage from "@/components/comic/update-page";
+import ClassifyPage from "@/components/comic/classify-page";
+import RankPage from "@/components/comic/rank-page";
 import { Navbar, TabItem } from "mint-ui";
 export default {
   components: {
     RecommendPage,
-    // SubjectPage
+    SubjectPage,
+    UpdatePage,
+    ClassifyPage,
+    RankPage
   },
   data() {
     return {
