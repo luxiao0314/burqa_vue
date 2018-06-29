@@ -10,21 +10,11 @@
 
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-          <recommend-page/>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-          <update-page/>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-          <classify-page/>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="4">
-          <rank-page/>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="5">
-          <subject-page/>
-      </mt-tab-container-item>
+      <mt-tab-container-item id="1"><recommend-page/></mt-tab-container-item>
+      <mt-tab-container-item id="2"><update-page/></mt-tab-container-item>
+      <mt-tab-container-item id="3"><classify-page/></mt-tab-container-item>
+      <mt-tab-container-item id="4"><rank-page/></mt-tab-container-item>
+      <mt-tab-container-item id="5"><subject-page/></mt-tab-container-item>
     </mt-tab-container>
   </div>
 </template>

@@ -12,6 +12,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "mint-ui": "^2.2.13",
     "vant": "^1.1.10",
     "vue": "^2.5.2",

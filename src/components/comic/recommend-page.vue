@@ -3,7 +3,7 @@
     <div class="swipe-wrapper">
         <mt-swipe :auto="4000">
             <mt-swipe-item v-for="(image, index) in images" :key="index">
-                <img v-lazy="image" />
+                <img v-lazy="image" class="img"/>
             </mt-swipe-item>
         </mt-swipe>
     </div>
@@ -29,6 +29,9 @@ export default {
 <style>
 .swipe-wrapper {
   width: 100%;
+  height: 200px;
+}
+.img{
   height: 200px;
 }
 </style>
