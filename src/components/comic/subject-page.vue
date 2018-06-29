@@ -1,6 +1,8 @@
 <template>
   <van-list v-model="loading" :finished="finished" @load="onLoad">
-    <subject-item/>
+    <div v-for="item in list" >
+      <subject-item :data="item"/>
+    </div>
   </van-list>
 </template>
 
@@ -28,17 +30,17 @@ export default {
   methods: {
     getData() {
       axios
-        .get("/api/novel/rank/0/0/0.json")
+        .get("/api/subject/0/0.json?channel=ios&version=2.4.7")
         .then(res => {
-          console.log(res);
+          this.list = res.data
         })
         .catch(err => console.log(err));
     },
     onLoad() {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          const text = this.list.length + 1;
-          this.list.push(text < 10 ? "0" + text : text);
+
+
         }
         this.loading = false;
         if (this.list.length >= 40) {
