@@ -12,9 +12,9 @@ export default {
 
 <style>
 body {
-  background-color: #FAFAFA;
+  background-color: #ebebeb;
 }
 #app {
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>

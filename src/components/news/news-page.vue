@@ -41,7 +41,7 @@ export default {
     },
     getData() {
       this.get("/v3/appV3_3/ios/phone/comic/todayRecommend").then(res => {
-        this.list = res.returnData.dayDataList;
+        this.list = res.dayDataList;
         this.refresh = false;
         this.loading = false;
         if (this.list.length == 0) {

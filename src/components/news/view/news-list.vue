@@ -1,19 +1,19 @@
 <template>
-    <div class="news-list">
-        <!-- <span>{{data.timeStamp | formatDate}}</span> -->
-        <div class="title">{{data.weekDay}}</div>
-        <div v-for="item in data.dayItemDataList">
-            <div v-if="item.type == 2" class="list-item">
-                <div class="list-title">{{item.comicListTitle}}</div>
-                <div v-for="listItem in item.dayComicItemList">
-                    <news-list-item :data="listItem" />
-                </div>
-            </div>
-            <div v-else>
-                <img :src="item.cover" class="img" />
-            </div>
+  <div class="news-list">
+    <!-- <span>{{data.timeStamp | formatDate}}</span> -->
+    <div class="title">{{data.weekDay}}</div>
+    <div v-for="item in data.dayItemDataList">
+      <div v-if="item.type == 2" class="list-item">
+        <div class="list-title">{{item.comicListTitle}}</div>
+        <div v-for="listItem in item.dayComicItemList">
+          <news-list-item :data="listItem" />
         </div>
+      </div>
+      <div v-else>
+        <img :src="item.cover" class="img" />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -54,7 +54,7 @@ export default {
   flex-direction: row;
 }
 .img {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
   width: 100%;
   height: 100%;
