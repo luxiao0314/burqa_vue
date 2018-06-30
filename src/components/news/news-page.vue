@@ -1,22 +1,22 @@
 <template>
-    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
-        <van-list v-model="loadmore" :finished="finished" @load="onLoad">
-            <div v-for="item in list">
-                <news-item :data="item" />
-            </div>
-        </van-list>
-    </van-pull-refresh>
+  <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+    <van-list v-model="loading" :finished="finished" @load="onLoad">
+      <div v-for="item in list">
+        <news-list :data="item" />
+      </div>
+    </van-list>
+  </van-pull-refresh>
 </template>
 
 <script>
 import { List, PullRefresh } from "vant";
-import NewsItem from "@/components/news/view/news-item";
+import NewsList from "@/components/news/view/news-list";
 
 export default {
   components: {
     [List.name]: List,
     [PullRefresh.name]: PullRefresh,
-    NewsItem
+    NewsList
   },
   created() {
     this.getData();
@@ -24,27 +24,25 @@ export default {
   data() {
     return {
       list: [],
-      refresh:false,
+      refresh: false,
       loading: false,
       finished: false
     };
   },
   methods: {
-      onRefresh() {
+    onRefresh() {
       this.getData(false);
     },
     onLoad() {
-      this.getData(true);
+      this.loading = true;
+      this.getData();
     },
-    getData(loadmore) {
-      if (loadmore) {
-        this.loading = true;
-      }
+    getData() {
       this.get("/v3/appV3_3/ios/phone/comic/todayRecommend").then(res => {
-        this.list = res.returnData.dayDataList[0].dayItemDataList;
-        this.refresh = false;  
+        this.list = res.returnData.dayDataList;
+        this.refresh = false;
         this.loading = false;
-        if (list.length == 0) {
+        if (this.list.length == 0) {
           this.finished = true;
         }
       });
