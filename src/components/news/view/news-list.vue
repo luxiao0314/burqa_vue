@@ -1,9 +1,14 @@
 <template>
-    <div class="news-list">
+    <div>
         <!-- <span>{{data.timeStamp | formatDate}}</span> -->
         <div>{{data.weekDay}}</div>
         <div v-for="item in data.dayItemDataList">
-            <img :src="item.cover" class="img" />
+            <div v-if="item.type == 2">
+                showImg == false
+            </div>
+            <div v-else>
+                <img :src="item.cover" class="img" />
+            </div>
         </div>
     </div>
 </template>
@@ -26,12 +31,9 @@ export default {
 </script>
 
 <style lang="scss">
-.news-list {
-
-}
 .img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 </style>
 
