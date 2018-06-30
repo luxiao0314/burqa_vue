@@ -16,13 +16,25 @@
                     </div>
                 </div>
             </div>
-
-            <div v-if="item.comicType == 15" class="popular-works">
+            <!--超人气作品-->
+            <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works">
                 <div class="works-title-item">
                     <div class="works-title">{{item.itemTitle}}</div>
                     <div class="works-des">{{item.description}}</div>
                 </div>
-                <popular-works-item v-for="works in item.comics" :key="works.cover" :data="works" />
+                <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
+
+            </div>
+            <!--新作推送-->
+            <div v-else class="popular-works">
+                <div class="works-title-item">
+                    <div class="works-title">{{item.itemTitle}}</div>
+                    <div class="works-des">{{item.description}}</div>
+                </div>
+                <div v-for="(subItem,index) in item.comics">
+                    <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
+                    <common-item-count v-else :data="subItem" />
+                </div>
             </div>
         </div>
     </div>
@@ -31,8 +43,14 @@
 <script>
 import { Swipe, SwipeItem } from "mint-ui";
 import PopularWorksItem from "@/components/novel/view/popular-works-item";
+import CommonItem from "@/components/novel/view/common-item";
+import CommonItemCount from "@/components/novel/view/common-item-count";
+import CrossLine from "@/components/widget/cross-line";
 export default {
   components: {
+    CommonItem,
+    CrossLine,
+    CommonItemCount,
     PopularWorksItem
   },
   created() {
@@ -84,10 +102,14 @@ export default {
     text-align: center;
   }
   .works-des {
+    text-align: center;
     color: gray;
     font-size: 12px;
     float: right;
   }
+}
+.novel-page {
+  margin-bottom: 20px;
 }
 </style>
 
