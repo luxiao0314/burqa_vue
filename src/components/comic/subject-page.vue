@@ -29,12 +29,11 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .get("/api/subject/0/0.json?channel=ios&version=2.4.7")
-        .then(res => {
-          this.list = res.data
-        })
-        .catch(err => console.log(err));
+      // axios
+      //   .get("/api/subject/0/0.json?channel=ios&version=2.4.7")
+      //   .then(res => {
+      //     this.list = res.data
+      //   })
     },
     onLoad() {
       setTimeout(() => {
