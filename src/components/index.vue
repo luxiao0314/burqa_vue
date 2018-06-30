@@ -1,5 +1,5 @@
 <template>
-  <div class="indexindex">
+  <div class="index">
     <div class="page-wrap">
       <mt-tab-container class="page-tabbar-container" v-model="selected">
         <mt-tab-container-item id="漫画">

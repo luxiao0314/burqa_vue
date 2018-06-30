@@ -1,11 +1,13 @@
 <template>
-  <van-pull-refresh v-model="refresh" @refresh="onRefresh">
-    <van-list v-model="loading" :finished="finished" @load="onLoad">
-      <div v-for="item in list">
-        <news-list :data="item" />
-      </div>
-    </van-list>
-  </van-pull-refresh>
+  <div class="new-page">
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+      <van-list v-model="loading" :finished="finished" @load="onLoad">
+        <div v-for="item in list">
+          <news-list :data="item" />
+        </div>
+      </van-list>
+    </van-pull-refresh>
+  </div>
 </template>
 
 <script>
@@ -35,7 +37,7 @@ export default {
     },
     onLoad() {
       this.loading = true;
-      this.getData();
+      // this.getData();
     },
     getData() {
       this.get("/v3/appV3_3/ios/phone/comic/todayRecommend").then(res => {
@@ -50,4 +52,5 @@ export default {
   }
 };
 </script>
+
 

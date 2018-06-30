@@ -1,10 +1,13 @@
 <template>
-    <div>
+    <div class="news-list">
         <!-- <span>{{data.timeStamp | formatDate}}</span> -->
-        <div>{{data.weekDay}}</div>
+        <div class="title">{{data.weekDay}}</div>
         <div v-for="item in data.dayItemDataList">
-            <div v-if="item.type == 2">
-                showImg == false
+            <div v-if="item.type == 2" class="list-item">
+                <div class="list-title">{{item.comicListTitle}}</div>
+                <div v-for="listItem in item.dayComicItemList">
+                    <news-list-item :data="listItem" />
+                </div>
             </div>
             <div v-else>
                 <img :src="item.cover" class="img" />
@@ -15,7 +18,11 @@
 
 <script>
 import { formatDate } from "../../../utils/date.js";
+import NewsListItem from "@/components/news/view/news-list-item";
 export default {
+  components: {
+    NewsListItem
+  },
   filters: {
     formatDate(time) {
       var date = new Date(time);
@@ -31,9 +38,38 @@ export default {
 </script>
 
 <style lang="scss">
+.news-list {
+  flex-direction: row;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.title {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
 .img {
+    margin-bottom: 10px;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
+}
+.list-title {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+.list-item {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 </style>
 
