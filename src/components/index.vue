@@ -19,16 +19,16 @@
 
     <mt-tabbar v-model="selected" fixed>
       <mt-tab-item id="漫画">
-        <img slot="icon" src="../assets/ic_main_recommend_selected.png"> 漫画
+        <img slot="icon" src="../assets/img/ic_main_recommend_selected.png"> 漫画
       </mt-tab-item>
       <mt-tab-item id="新闻">
-        <img slot="icon" src="../assets/ic_main_favorite_selected.png"> 新闻
+        <img slot="icon" src="../assets/img/ic_main_favorite_selected.png"> 新闻
       </mt-tab-item>
       <mt-tab-item id="轻小说">
-        <img slot="icon" src="../assets/ic_main_category_selected.png"> 轻小说
+        <img slot="icon" src="../assets/img/ic_main_category_selected.png"> 轻小说
       </mt-tab-item>
       <mt-tab-item id="我的">
-        <img slot="icon" src="../assets/ic_main_schedule_selected.png"> 我的
+        <img slot="icon" src="../assets/img/ic_main_schedule_selected.png"> 我的
       </mt-tab-item>
     </mt-tabbar>
   </div>

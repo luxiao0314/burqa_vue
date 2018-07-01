@@ -20,7 +20,9 @@
             <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works">
                 <div class="works-title-item">
                     <div class="works-title">{{item.itemTitle}}</div>
-                    <div class="works-des">{{item.description}}</div>
+                    <div class="works-des">{{item.description}}
+                      <i class="iconfont icon-more"></i>
+                    </div>
                 </div>
                 <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
 
@@ -29,7 +31,9 @@
             <div v-else class="popular-works">
                 <div class="works-title-item">
                     <div class="works-title">{{item.itemTitle}}</div>
-                    <div class="works-des">{{item.description}}</div>
+                    <div class="works-des">{{item.description}}
+                      <i class="iconfont icon-more"></i>
+                    </div>
                 </div>
                 <div v-for="(subItem,index) in item.comics">
                     <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
@@ -102,7 +106,6 @@ export default {
     text-align: center;
   }
   .works-des {
-    text-align: center;
     color: gray;
     font-size: 12px;
     float: right;
