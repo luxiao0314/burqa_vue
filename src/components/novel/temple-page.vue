@@ -12,6 +12,7 @@
 
 <script>
 import RankListItem from "@/components/novel/view/rank-list-item";
+
 import { List, PullRefresh } from "vant";
 export default {
   components: {
@@ -43,8 +44,9 @@ export default {
       this.getData();
     },
     onLoad() {
-      //   this.loading = true;
-      // this.getData();
+      this.loading = true;
+      this.page++;
+      this.getData();
     },
     getData() {
       this.get("v3/appV3_3/ios/phone/list/getRankComicList", {

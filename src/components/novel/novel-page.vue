@@ -11,8 +11,8 @@
       <!--排行,vip,订阅等-->
       <div v-if="item.comicType == 11">
         <div class="tag-item">
-          <div v-for="tagItem in item.comics">
-            <img :src="tagItem.cover" class="tag-img">
+          <div v-for="(tagItem,index) in item.comics">
+            <img :src="tagItem.cover" class="tag-img" @click="tabClick(index)">
           </div>
         </div>
       </div>
@@ -74,7 +74,12 @@ export default {
       });
     },
     more() {
-      this.$router.push({ path: "/rank" });
+      this.$toast("more")
+    },
+    tabClick(index){
+      if(index == 0){
+        this.$router.push({ path: "/rank" });
+      }
     }
   }
 };
