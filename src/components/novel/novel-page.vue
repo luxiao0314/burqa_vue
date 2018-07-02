@@ -1,47 +1,47 @@
 <template>
-    <div class="novel-page">
-        <div class="swipe-wrapper">
-            <mt-swipe :auto="4000">
-                <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
-                    <img :src="image.cover" class="banner-img" />
-                </mt-swipe-item>
-            </mt-swipe>
-        </div>
-        <div v-for="item in comicLists">
-            <!--排行,vip,订阅等-->
-            <div v-if="item.comicType == 11">
-                <div class="tag-item">
-                    <div v-for="tagItem in item.comics">
-                        <img :src="tagItem.cover" class="tag-img">
-                    </div>
-                </div>
-            </div>
-            <!--超人气作品-->
-            <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works">
-                <div class="works-title-item">
-                    <div class="works-title">{{item.itemTitle}}</div>
-                    <div class="works-des">{{item.description}}
-                      <i class="iconfont icon-more"></i>
-                    </div>
-                </div>
-                <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
-
-            </div>
-            <!--新作推送-->
-            <div v-else class="popular-works">
-                <div class="works-title-item">
-                    <div class="works-title">{{item.itemTitle}}</div>
-                    <div class="works-des">{{item.description}}
-                      <i class="iconfont icon-more"></i>
-                    </div>
-                </div>
-                <div v-for="(subItem,index) in item.comics">
-                    <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
-                    <common-item-count v-else :data="subItem" />
-                </div>
-            </div>
-        </div>
+  <div class="novel-page">
+    <div class="swipe-wrapper">
+      <mt-swipe :auto="4000">
+        <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
+          <img :src="image.cover" class="banner-img" />
+        </mt-swipe-item>
+      </mt-swipe>
     </div>
+    <div v-for="item in comicLists">
+      <!--排行,vip,订阅等-->
+      <div v-if="item.comicType == 11">
+        <div class="tag-item">
+          <div v-for="tagItem in item.comics">
+            <img :src="tagItem.cover" class="tag-img">
+          </div>
+        </div>
+      </div>
+      <!--超人气作品-->
+      <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works" @click="more">
+        <div class="works-title-item">
+          <div class="works-title">{{item.itemTitle}}</div>
+          <div class="works-des">{{item.description}}
+            <i class="iconfont icon-more"></i>
+          </div>
+        </div>
+        <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
+
+      </div>
+      <!--新作推送-->
+      <div v-else class="popular-works">
+        <div class="works-title-item">
+          <div class="works-title">{{item.itemTitle}}</div>
+          <div class="works-des">{{item.description}}
+            <i class="iconfont icon-more"></i>
+          </div>
+        </div>
+        <div v-for="(subItem,index) in item.comics">
+          <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
+          <common-item-count v-else :data="subItem" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -72,6 +72,9 @@ export default {
         this.galleryItems = res.galleryItems;
         this.comicLists = res.comicLists;
       });
+    },
+    more() {
+      this.$router.push({ path: "/rank" });
     }
   }
 };

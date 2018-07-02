@@ -2,14 +2,14 @@
   <div class="index">
     <div class="page-wrap">
       <mt-tab-container class="page-tabbar-container" v-model="selected">
-        <mt-tab-container-item id="漫画">
-          <comic-page/>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="新闻">
+        <mt-tab-container-item id="今日">
           <news-page/>
         </mt-tab-container-item>
-        <mt-tab-container-item id="轻小说">
+        <mt-tab-container-item id="发现">
           <novel-page/>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="书架">
+          <comic-page/>
         </mt-tab-container-item>
         <mt-tab-container-item id="我的">
           <mine-page/>
@@ -18,14 +18,14 @@
     </div>
 
     <mt-tabbar v-model="selected" fixed>
-      <mt-tab-item id="漫画">
-        <img slot="icon" src="../assets/img/ic_main_recommend_selected.png"> 漫画
+      <mt-tab-item id="今日">
+        <img slot="icon" src="../assets/img/ic_main_favorite_selected.png"> 今日
       </mt-tab-item>
-      <mt-tab-item id="新闻">
-        <img slot="icon" src="../assets/img/ic_main_favorite_selected.png"> 新闻
+      <mt-tab-item id="发现">
+        <img slot="icon" src="../assets/img/ic_main_category_selected.png"> 发现
       </mt-tab-item>
-      <mt-tab-item id="轻小说">
-        <img slot="icon" src="../assets/img/ic_main_category_selected.png"> 轻小说
+      <mt-tab-item id="书架">
+        <img slot="icon" src="../assets/img/ic_main_recommend_selected.png"> 书架
       </mt-tab-item>
       <mt-tab-item id="我的">
         <img slot="icon" src="../assets/img/ic_main_schedule_selected.png"> 我的
@@ -49,7 +49,7 @@ export default {
   name: "index",
   data() {
     return {
-      selected: "漫画"
+      selected: "发现"
     };
   }
 };
