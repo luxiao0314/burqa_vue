@@ -69,8 +69,8 @@ export default {
   methods: {
     getData() {
       this.get("/v3/appV3_3/ios/phone/comic/getDetectList").then(res => {
-        this.galleryItems = res.galleryItems;
-        this.comicLists = res.comicLists;
+        this.galleryItems = res.returnData.galleryItems;
+        this.comicLists = res.returnData.comicLists;
       });
     },
     more() {

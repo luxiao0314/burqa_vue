@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     onRefresh() {
+      this.page = 1;
       this.getData();
     },
     onLoad() {
@@ -54,11 +55,15 @@ export default {
         type: this.type,
         period: this.period
       }).then(res => {
-        this.list.splice(this.list.length, 0, ...res.comics);
-        // this.list = res.comics;
         this.refresh = false;
         this.loading = false;
-        if ((res == null) | (this.list.length == 0)) {
+        if (res.returnData != null && res.returnData.comics.length != 0) {
+          if (this.page == 1) {
+            this.list = res.returnData.comics;
+          } else {
+            this.list.splice(this.list.length, 0, ...res.returnData.comics);
+          }
+        } else {
           this.finished = true;
         }
       });

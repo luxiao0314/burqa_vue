@@ -35,7 +35,7 @@ function checkStatus(response) {
   if (response &&
     (response.status === 200 || response.status === 304 || response.status === 400) &&
     (response.data.code == 1)) {
-    return response.data.data.returnData // 如果不需要除了data之外的数据，可以直接 return response.data
+    return response.data.data // 如果不需要除了data之外的数据，可以直接 return response.data
   }
   // 异常状态下，把错误信息返回去
   return {
