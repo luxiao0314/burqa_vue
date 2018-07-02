@@ -4,51 +4,53 @@
         <div class="title-tab">
             <div class="rank">排行榜</div>
             <div class="period">
-                <mt-button size="small" type="btnType" class="button">总</mt-button>
-                <mt-button size="small" type="btnType" class="button">月</mt-button>
-                <mt-button size="small" type="btnType" class="button">周</mt-button>
+                <mt-button size="small" :type="btnType" class="button">总</mt-button>
+                <mt-button size="small" :type="btnType" class="button">月</mt-button>
+                <mt-button size="small" :type="btnType" class="button">周</mt-button>
             </div>
         </div>
 
-    <div>
-        <mt-navbar v-model="selected">
-            <mt-tab-item id="1">圣殿榜</mt-tab-item>
-            <mt-tab-item id="2">成长榜</mt-tab-item>
-            <mt-tab-item id="3">订阅榜</mt-tab-item>
-            <mt-tab-item id="4">新作榜</mt-tab-item>
-        </mt-navbar>
+        <div>
+            <mt-navbar v-model="selected">
+                <mt-tab-item id="1">圣殿榜</mt-tab-item>
+                <mt-tab-item id="2">成长榜</mt-tab-item>
+                <mt-tab-item id="3">订阅榜</mt-tab-item>
+                <mt-tab-item id="4">新作榜</mt-tab-item>
+            </mt-navbar>
 
-        <!-- tab-container -->
-        <mt-tab-container v-model="selected">
-        <mt-tab-container-item id="1"><temple-page/></mt-tab-container-item>
-        <mt-tab-container-item id="2"><growth-page/></mt-tab-container-item>
-        <mt-tab-container-item id="3"><subscribe-page/></mt-tab-container-item>
-        <mt-tab-container-item id="4"><new-work-page/></mt-tab-container-item>
-        </mt-tab-container>
-    </div>
-        
+            <!-- tab-container -->
+            <mt-tab-container v-model="selected">
+                <mt-tab-container-item id="1">
+                    <temple-page :type="2"/>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="2">
+                    <temple-page :type="18"/>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="3">
+                    <temple-page :type="21"/>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="4">
+                    <temple-page :type="19"/>
+                </mt-tab-container-item>
+            </mt-tab-container>
+        </div>
     </div>
 </template>
 
 <script>
 import HeaderBar from "@/components/widget/header-bar";
 import TemplePage from "@/components/novel/temple-page";
-import GrowthPage from "@/components/novel/growth-page";
-import SubscribePage from "@/components/novel/subscribe-page";
-import NewWorkPage from "@/components/novel/new-work-page";
 import { Button } from "mint-ui";
 import { Navbar, TabItem } from "mint-ui";
+
 export default {
   components: {
     HeaderBar,
-    SubscribePage,
-    GrowthPage,
     TemplePage,
-    NewWorkPage
   },
   data() {
     return {
-      btnType: "default",
+      btnType: "primary", //default,danger,primary
       selected: "1"
     };
   }

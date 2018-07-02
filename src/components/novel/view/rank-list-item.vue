@@ -1,19 +1,19 @@
 <template>
-  <div class="news-list-item">
-    <div class="left"><img :src="data.cover" /></div>
-    <div class="right">
-      <div class="title">{{data.name}}</div>
-      <div class="tags">{{this.getTags(data.tags)}}</div>
-      <cross-line></cross-line>
+    <div>
+        <div class="rank-list-item">
+            <div class="left"><img :src="data.cover" /></div>
+            <div class="right">
+                <div class="title">{{data.name}}</div>
+                <div class="des">{{data.short_description}}</div>
+                <div class="tags">{{this.getTags(data.tags)}}</div>
+            </div>
+            <div class="rank">{{data.comic_id}}</div>
+        </div>
+        <cross-line></cross-line>
     </div>
-    <mt-button type="primary" size="small" class="button">
-      阅读漫画
-    </mt-button>
-  </div>
 </template>
 
 <script>
-import { Button } from "mint-ui";
 import CrossLine from "@/components/widget/cross-line";
 export default {
   components: {
@@ -37,8 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.news-list-item {
-  margin-bottom: 5px;
+.rank-list-item {
   display: flex;
   flex-direction: row;
   padding: 10px 0;
@@ -47,7 +46,6 @@ export default {
     flex: 0 0 90px;
     width: 90px;
     img {
-      border-radius: 5px;
       display: block;
       width: 70px;
       margin: 0 auto;
@@ -58,27 +56,31 @@ export default {
     display: flex;
     flex-direction: column;
     .title {
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 5px;
       font-size: 12px;
       flex: 1;
       display: flex;
       flex-direction: row;
     }
+    .des {
+      font-size: 10px;
+      flex: 1;
+      color: gray;
+      display: flex;
+      margin-bottom: 20px;
+    }
     .tags {
       font-size: 10px;
       flex: 1;
+      color: gray;
       display: flex;
-      margin-bottom: 20px;
-      flex-direction: row;
     }
   }
-  .button {
-    border-radius: 20px;
-    top: 30px;
-    height: 25px;
-    font-size: 12px;
-    right: 20px;
+  .rank {
+    color: lightgray;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-right: 20px;
   }
 }
 </style>

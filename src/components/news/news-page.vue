@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     onRefresh() {
-      this.getData(false);
+      this.getData();
     },
     onLoad() {
       this.loading = true;
