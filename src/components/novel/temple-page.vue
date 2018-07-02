@@ -54,10 +54,11 @@ export default {
         type: this.type,
         period: this.period
       }).then(res => {
-        this.list = res.comics;
+        this.list.splice(this.list.length, 0, ...res.comics);
+        // this.list = res.comics;
         this.refresh = false;
         this.loading = false;
-        if (this.list.length == 0) {
+        if ((res == null) | (this.list.length == 0)) {
           this.finished = true;
         }
       });
