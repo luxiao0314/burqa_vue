@@ -4,9 +4,9 @@
         <div class="title-tab">
             <div class="rank">排行榜</div>
             <div class="period">
-                <mt-button size="small" :type="btnType" class="button">总</mt-button>
-                <mt-button size="small" :type="btnType" class="button">月</mt-button>
-                <mt-button size="small" :type="btnType" class="button">周</mt-button>
+                <mt-button size="small" :type="btn1Type" class="button" v-on:click="tabClick('total')">总</mt-button>
+                <mt-button size="small" :type="btn2Type" class="button" v-on:click="tabClick('month')">月</mt-button>
+                <mt-button size="small" :type="btn3Type" class="button" v-on:click="tabClick('week')">周</mt-button>
             </div>
         </div>
 
@@ -21,16 +21,16 @@
             <!-- tab-container -->
             <mt-tab-container v-model="selected">
                 <mt-tab-container-item id="1">
-                    <temple-page :type="2"/>
+                    <temple-page :type="2" ref="child" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="2">
-                    <temple-page :type="18"/>
+                    <temple-page :type="18" ref="child" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="3">
-                    <temple-page :type="21"/>
+                    <temple-page :type="21" ref="child" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="4">
-                    <temple-page :type="19"/>
+                    <temple-page :type="19" ref="child" />
                 </mt-tab-container-item>
             </mt-tab-container>
         </div>
@@ -46,13 +46,33 @@ import { Navbar, TabItem } from "mint-ui";
 export default {
   components: {
     HeaderBar,
-    TemplePage,
+    TemplePage
   },
   data() {
     return {
-      btnType: "primary", //default,danger,primary
+      btn1Type: "default", //default,danger,primary
+      btn2Type: "default",
+      btn3Type: "primary",
       selected: "1"
     };
+  },
+  methods: {
+    tabClick(period) {
+      this.$refs.child.refreshData(period);
+      if (period == "total") {
+        this.btn1Type = "primary";
+        this.btn2Type = "default";
+        this.btn3Type = "default";
+      } else if (period == "month") {
+        this.btn2Type = "primary";
+        this.btn1Type = "default";
+        this.btn3Type = "default";
+      } else {
+        this.btn3Type = "primary";
+        this.btn2Type = "default";
+        this.btn1Type = "default";
+      }
+    }
   }
 };
 </script>

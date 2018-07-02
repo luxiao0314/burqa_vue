@@ -40,6 +40,12 @@ export default {
     this.getData();
   },
   methods: {
+    refreshData(period) {
+      this.refresh = true;
+      this.period = period;
+      this.page = 1;
+      this.getData();
+    },
     onRefresh() {
       this.page = 1;
       this.getData();
