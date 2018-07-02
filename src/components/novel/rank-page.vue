@@ -4,7 +4,7 @@
         <div class="title-tab">
             <div class="rank">排行榜</div>
             <div class="period">
-                <mt-button size="small" :type="btn1Type" class="button" v-on:click="tabClick('total')">总</mt-button>
+                <mt-button size="small" :type="btn1Type" class="button" v-on:click="tabClick('total')" v-if="selected == 1">总</mt-button>
                 <mt-button size="small" :type="btn2Type" class="button" v-on:click="tabClick('month')">月</mt-button>
                 <mt-button size="small" :type="btn3Type" class="button" v-on:click="tabClick('week')">周</mt-button>
             </div>
@@ -21,16 +21,16 @@
             <!-- tab-container -->
             <mt-tab-container v-model="selected">
                 <mt-tab-container-item id="1">
-                    <temple-page :type="2" ref="child" />
+                    <temple-page :type="2" ref="child1" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="2">
-                    <temple-page :type="18" ref="child" />
+                    <temple-page :type="18" ref="child2" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="3">
-                    <temple-page :type="21" ref="child" />
+                    <temple-page :type="21" ref="child3" />
                 </mt-tab-container-item>
                 <mt-tab-container-item id="4">
-                    <temple-page :type="19" ref="child" />
+                    <temple-page :type="19" ref="child4" />
                 </mt-tab-container-item>
             </mt-tab-container>
         </div>
@@ -58,19 +58,27 @@ export default {
   },
   methods: {
     tabClick(period) {
-      this.$refs.child.refreshData(period);
-      if (period == "total") {
-        this.btn1Type = "primary";
+      if (period == "week") {
+        this.btn3Type = "primary";
         this.btn2Type = "default";
-        this.btn3Type = "default";
+        this.btn1Type = "default";
+        this.$refs.child1.refreshData(period);
+        this.$refs.child2.refreshData(period);
+        this.$refs.child3.refreshData(period);
+        this.$refs.child4.refreshData(period);
       } else if (period == "month") {
         this.btn2Type = "primary";
         this.btn1Type = "default";
         this.btn3Type = "default";
+        this.$refs.child1.refreshData(period);
+        this.$refs.child2.refreshData(period);
+        this.$refs.child3.refreshData(period);
+        this.$refs.child4.refreshData(period);
       } else {
-        this.btn3Type = "primary";
+        this.btn1Type = "primary";
         this.btn2Type = "default";
-        this.btn1Type = "default";
+        this.btn3Type = "default";
+        this.$refs.child1.refreshData(period);
       }
     }
   }
