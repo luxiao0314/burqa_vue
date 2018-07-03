@@ -42,8 +42,8 @@ export default {
   }
   .title-span {
     padding: 5px;
-    display: block;
     font-size: 12px;
+    white-space: nowrap;
     line-height: 12px;
     text-align: left;
     color: #2f2f2f;

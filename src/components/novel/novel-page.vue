@@ -74,11 +74,13 @@ export default {
       });
     },
     more() {
-      this.$toast("more")
+      this.$toast("more");
     },
-    tabClick(index){
-      if(index == 0){
+    tabClick(index) {
+      if (index == 0) {
         this.$router.push({ path: "/rank" });
+      } else if (index == 1) {
+        this.$router.push({ path: "/vip" });
       }
     }
   }
