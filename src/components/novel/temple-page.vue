@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <van-pull-refresh v-model="refresh" @refresh="onRefresh">
-            <van-list v-model="loading" :finished="finished" @load="onLoad">
-                <div v-for="(item,index) in list">
-                    <rank-list-item :data="item" />
-                </div>
-            </van-list>
-        </van-pull-refresh>
-    </div>
+  <div>
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+      <van-list v-model="loading" :finished="finished" @load="onLoad">
+        <div v-for="(item,index) in list">
+          <rank-list-item :data="item" />
+        </div>
+      </van-list>
+    </van-pull-refresh>
+  </div>
 </template>
 
 <script>
@@ -47,6 +47,7 @@ export default {
       this.getData();
     },
     onRefresh() {
+      this.refresh = true;
       this.page = 1;
       this.getData();
     },
@@ -64,7 +65,7 @@ export default {
         this.refresh = false;
         this.loading = false;
         if (res.returnData != null && res.returnData.comics.length != 0) {
-          if (this.page == 1) {
+          if (this.refresh) {
             this.list = res.returnData.comics;
           } else {
             this.list.splice(this.list.length, 0, ...res.returnData.comics);

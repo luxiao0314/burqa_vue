@@ -46,9 +46,8 @@ export default {
     flex: 0 0 90px;
     width: 90px;
     img {
-      display: block;
       width: 70px;
-      margin: 0 auto;
+      margin-left: 15px;
     }
   }
   .right {
