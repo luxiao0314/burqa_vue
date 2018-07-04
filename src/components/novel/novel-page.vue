@@ -81,6 +81,8 @@ export default {
         this.$router.push({ path: "/rank" });
       } else if (index == 1) {
         this.$router.push({ path: "/vip" });
+      } else if (index == 2) {
+        this.$router.push({ path: "/subscibe" });
       }
     }
   }

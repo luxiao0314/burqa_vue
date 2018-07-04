@@ -39,6 +39,8 @@ export default {
     display: block;
     width: 100%;
     margin: 2px;
+    border-width: 5px;
+    border-color: black;
   }
   .title-span {
     padding: 5px;

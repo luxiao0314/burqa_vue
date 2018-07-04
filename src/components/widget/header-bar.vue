@@ -1,15 +1,19 @@
 <!-- 顶部栏 组件 -->
 
 <template>
-  <div class="header-bar" @click="back">
-    <i class="icon-arrow_lift"></i>
-    <div class="title">{{text}}</div>
+  <div>
+    <div class="header-bar" @click="back">
+      <i class="icon-arrow_lift"></i>
+      <div class="title">{{text}}</div>
+    </div>
+    <cross-line/>
   </div>
 </template>
 
 <script>
+import CrossLine from "@/components/widget/cross-line";
 export default {
-  components: {},
+  components: { CrossLine },
   data() {
     return {};
   },
