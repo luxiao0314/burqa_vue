@@ -36,11 +36,10 @@ export default {
   float: left;
   width: 33%;
   .works-img {
+    border:1px solid lightgray;
     display: block;
     width: 100%;
     margin: 2px;
-    border-width: 5px;
-    border-color: black;
   }
   .title-span {
     padding: 5px;

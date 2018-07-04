@@ -25,7 +25,6 @@
           </div>
         </div>
         <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
-
       </div>
       <!--新作推送-->
       <div v-else class="popular-works">
@@ -40,7 +39,7 @@
         </div>
         <div v-else>
           <div v-for="(subItem,index) in item.comics">
-            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
+            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem)" />
             <common-item-count v-else :data="subItem " />
           </div>
         </div>
@@ -78,6 +77,12 @@ export default {
         this.comicLists = res.returnData.comicLists;
       });
     },
+    push(subItem) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: subItem }
+      });
+    },
     more(argValue) {
       this.$router.push({ path: "/common", query: { argValue: argValue } });
     },
@@ -90,8 +95,8 @@ export default {
         this.$router.push({ path: "/subscibe" });
       } else if (index == 3) {
         this.$router.push({ path: "/common", query: { argValue: "12" } });
-      } else if(index == 4){
-        this.$router.push({ path: "/classify"});
+      } else if (index == 4) {
+        this.$router.push({ path: "/classify" });
       }
     }
   }
