@@ -11,6 +11,7 @@ const Index = (resolve) =>import ('@/components/index').then((module) => resolve
 const RankPage = (resolve) =>import ('@/components/novel/rank-page').then((module) => resolve(module))
 const VipPage = (resolve) =>import ('@/components/novel/vip-page').then((module) => resolve(module))
 const SubscibePage = (resolve) =>import ('@/components/novel/subscibe-page').then((module) => resolve(module))
+const UpdatePage = (resolve) =>import ('@/components/novel/update-page').then((module) => resolve(module))
 
 export default new Router({
   routes: [{
@@ -29,6 +30,10 @@ export default new Router({
     {
       path: '/subscibe',
       component: SubscibePage
+    },
+    {
+      path: '/update',
+      component: UpdatePage
     }
   ]
 })

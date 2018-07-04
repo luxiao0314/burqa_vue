@@ -40,15 +40,15 @@ export default {
 .header-bar {
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 40px;
   background: #fff;
   z-index: 10;
   i {
     float: left;
-    margin: 17px 0 0 10px;
+    margin: 12px 0 0 10px;
   }
   .title {
-    margin: 14px 0 0 5px;
+    margin: 9px 0 0 5px;
     float: left;
     font-size: 17px;
     color: #333;

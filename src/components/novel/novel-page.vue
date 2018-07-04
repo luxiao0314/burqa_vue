@@ -83,6 +83,8 @@ export default {
         this.$router.push({ path: "/vip" });
       } else if (index == 2) {
         this.$router.push({ path: "/subscibe" });
+      } else if(index == 3){
+        this.$router.push({ path: "/update" });
       }
     }
   }
