@@ -90,6 +90,8 @@ export default {
         this.$router.push({ path: "/subscibe" });
       } else if (index == 3) {
         this.$router.push({ path: "/common", query: { argValue: "12" } });
+      } else if(index == 4){
+        this.$router.push({ path: "/classify"});
       }
     }
   }

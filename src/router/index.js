@@ -17,6 +17,8 @@ const SubscibePage = (resolve) =>
   import ('@/components/novel/subscibe-page').then((module) => resolve(module))
 const CommonPage = (resolve) =>
   import ('@/components/novel/common-page').then((module) => resolve(module))
+const ClassifyPage = (resolve) =>
+  import ('@/components/novel/classify-page').then((module) => resolve(module))
 
 export default new Router({
   routes: [{
@@ -39,6 +41,10 @@ export default new Router({
     {
       path: '/common',
       component: CommonPage
+    },
+    {
+      path: '/classify',
+      component: ClassifyPage
     }
   ]
 })
