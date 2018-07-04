@@ -29,7 +29,7 @@ export default {
       finished: false,
       page: 1,
       list: [],
-      argCon:this.$route.query.argCon
+      argValue:this.$route.query.argValue
     };
   },
   created() {
@@ -50,7 +50,7 @@ export default {
       this.get(
         "v3/appV3_3/ios/phone/list/commonComicList?argName=detect&argValue=12&sexType=3",
         {
-          argCon: this.argCon,
+          argValue: this.argValue,
           page: this.page
         }
       ).then(res => {

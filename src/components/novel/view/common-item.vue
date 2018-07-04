@@ -1,9 +1,9 @@
 <template>
-    <div class="types-item">
-        <img :src="data.cover" class="works-img">
-        <span class="title-span">{{data.name}}</span>
-        <div class="des-span">{{this.getTags(data.tags)}}</div>
-    </div>
+  <div class="types-item">
+    <img :src="data.cover" class="works-img">
+    <span class="title-span">{{data.name}}</span>
+    <div class="des-span">{{this.getTags(data.tags)}}</div>
+  </div>
 </template>
 
 <script>
@@ -16,9 +16,11 @@ export default {
   methods: {
     getTags(tags) {
       var tag_tags = "";
-      tags.forEach(element => {
-        tag_tags += element + " ";
-      });
+      if (tags != null) {
+        tags.forEach(element => {
+          tag_tags += element + " ";
+        });
+      }
       return tag_tags;
     }
   }

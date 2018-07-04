@@ -7,7 +7,7 @@
         </mt-swipe-item>
       </mt-swipe>
     </div>
-    <div v-for="item in comicLists">
+    <div v-for="(item,i) in comicLists">
       <!--排行,vip,订阅等-->
       <div v-if="item.comicType == 11">
         <div class="tag-item">
@@ -17,8 +17,8 @@
         </div>
       </div>
       <!--超人气作品-->
-      <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works" @click="popularMore">
-        <div class="works-title-item">
+      <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works">
+        <div class="works-title-item" @click="more(item.argValue)">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
             <i class="iconfont icon-more"></i>
@@ -29,15 +29,20 @@
       </div>
       <!--新作推送-->
       <div v-else class="popular-works">
-        <div class="works-title-item">
+        <div class="works-title-item" @click="more(item.argValue)">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
             <i class="iconfont icon-more"></i>
           </div>
         </div>
-        <div v-for="(subItem,index) in item.comics">
-          <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
-          <common-item-count v-else :data="subItem" />
+        <div v-if="item.itemTitle == '活动'">
+          <common-item :data="item.comics[0]" />
+        </div>
+        <div v-else>
+          <div v-for="(subItem,index) in item.comics">
+            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" />
+            <common-item-count v-else :data="subItem " />
+          </div>
         </div>
       </div>
     </div>
@@ -73,8 +78,8 @@ export default {
         this.comicLists = res.returnData.comicLists;
       });
     },
-    popularMore() {
-      this.$router.push({ path: "/common", query: { argCon: "1" } });
+    more(argValue) {
+      this.$router.push({ path: "/common", query: { argValue: argValue } });
     },
     tabClick(index) {
       if (index == 0) {
@@ -84,7 +89,7 @@ export default {
       } else if (index == 2) {
         this.$router.push({ path: "/subscibe" });
       } else if (index == 3) {
-        this.$router.push({ path: "/common", query: { argCon: "2" } });
+        this.$router.push({ path: "/common", query: { argValue: "12" } });
       }
     }
   }

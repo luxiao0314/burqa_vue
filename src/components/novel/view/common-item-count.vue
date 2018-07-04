@@ -2,7 +2,7 @@
   <div class="types-item">
     <img :src="data.cover" class="works-img">
     <span class="title-span">{{data.name}}</span>
-    <div class="des-span">{{this.getTags(data)}}</div>
+    <span class="des-span">{{this.getTags(data)}}</span>
   </div>
 </template>
 
@@ -51,6 +51,7 @@ export default {
     color: #2f2f2f;
   }
   .des-span {
+    white-space: nowrap;
     padding-left: 5px;
     padding-bottom: 5px;
     display: block;
