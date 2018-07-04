@@ -1,25 +1,25 @@
 <template>
-    <div class="bg">
-        <header-bar text="发现"></header-bar>
-        <van-pull-refresh v-model="refresh" @refresh="onRefresh">
-            <van-list v-model="loading" :finished="finished" @load="onLoad">
-                <div v-for="(item,index) in list">
-                    <update-item-list :data="item"/>
-                </div>
-            </van-list>
-        </van-pull-refresh>
-    </div>
+  <div class="bg">
+    <header-bar text="发现"></header-bar>
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+      <van-list v-model="loading" :finished="finished" @load="onLoad">
+        <div v-for="(item,index) in list">
+          <common-item-list :data="item" />
+        </div>
+      </van-list>
+    </van-pull-refresh>
+  </div>
 </template>
 
 <script>
 import { List, PullRefresh } from "vant";
 import HeaderBar from "@/components/widget/header-bar";
-import UpdateItemList from "@/components/novel/view/update-item-list";
+import CommonItemList from "@/components/novel/view/common-item-list";
 export default {
   components: {
     [PullRefresh.name]: PullRefresh,
     [List.name]: List,
-    UpdateItemList,
+    CommonItemList,
     HeaderBar
   },
   data() {
@@ -28,7 +28,8 @@ export default {
       loading: false,
       finished: false,
       page: 1,
-      list: []
+      list: [],
+      argCon:this.$route.query.argCon
     };
   },
   created() {
@@ -47,8 +48,9 @@ export default {
     },
     getData() {
       this.get(
-        "v3/appV3_3/ios/phone/list/commonComicList?argCon=2&argName=detect&argValue=12&sexType=3",
+        "v3/appV3_3/ios/phone/list/commonComicList?argName=detect&argValue=12&sexType=3",
         {
+          argCon: this.argCon,
           page: this.page
         }
       ).then(res => {

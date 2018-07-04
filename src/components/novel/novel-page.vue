@@ -17,7 +17,7 @@
         </div>
       </div>
       <!--超人气作品-->
-      <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works" @click="more">
+      <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works" @click="popularMore">
         <div class="works-title-item">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
@@ -73,8 +73,8 @@ export default {
         this.comicLists = res.returnData.comicLists;
       });
     },
-    more() {
-      this.$toast("more");
+    popularMore() {
+      this.$router.push({ path: "/common", query: { argCon: "1" } });
     },
     tabClick(index) {
       if (index == 0) {
@@ -83,8 +83,8 @@ export default {
         this.$router.push({ path: "/vip" });
       } else if (index == 2) {
         this.$router.push({ path: "/subscibe" });
-      } else if(index == 3){
-        this.$router.push({ path: "/update" });
+      } else if (index == 3) {
+        this.$router.push({ path: "/common", query: { argCon: "2" } });
       }
     }
   }

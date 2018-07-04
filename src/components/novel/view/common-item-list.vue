@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div class="news-list-item">
-            <div class="left"><img :src="data.cover" /></div>
-            <div class="right">
-                <div class="title">{{data.name}}</div>
-                <div class="tags">{{this.getTags(data)}}</div>
-                <div class="des">{{data.description}}</div>
-                <div class="time">{{data.conTag}}</div>
-            </div>
-        </div>
-        <cross-line></cross-line>
+  <div>
+    <div class="list-item">
+      <div class="left"><img :src="data.cover" /></div>
+      <div class="right">
+        <div class="title">{{data.name}}</div>
+        <div class="tags">{{this.getTags(data)}}</div>
+        <div class="des">{{data.description}}</div>
+        <div class="time">{{data.conTag}}</div>
+      </div>
     </div>
+    <cross-line></cross-line>
+  </div>
 </template>
 
 <script>
@@ -38,21 +38,19 @@ export default {
 </script>
 
 <style lang="scss">
-.news-list-item {
+.list-item {
   display: flex;
   flex-direction: row;
   padding: 10px 0;
   overflow: hidden;
-  .left {
-    width: 100px;
-    img {
-      display: block;
-      width: 80px;
-      margin: 0 auto;
-    }
+  img {
+    display: block;
+    width: 80px;
+    margin: 0 auto;
   }
   .right {
-    flex: 1;
+    margin-left: 10px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     .title {
@@ -65,7 +63,6 @@ export default {
     }
     .des {
       color: gray;
-      flex: 1;
       line-height: 1.5;
       margin-top: 5px;
       margin-right: 15px;
@@ -73,6 +70,7 @@ export default {
       font-size: 8px;
     }
     .time {
+      float: bottom;
       color: red;
       margin-top: 5px;
       font-size: 8px;
