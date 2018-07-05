@@ -3,15 +3,15 @@
         <div class="des">{{this.des()}}</div>
         <div class="num">
             <div class="num-value">
-                <div class="num-color">4125</div>
+                <div class="num-color">317</div>
                 <div class="text-color">热度值</div>
             </div>
             <div class="num-value">
-                <div class="num-color">4125</div>
+                <div class="num-color">4200</div>
                 <div class="text-color">收藏量</div>
             </div>
             <div class="num-value">
-                <div class="num-color">4125</div>
+                <div class="num-color">5000</div>
                 <div class="text-color">本月月票</div>
             </div>
         </div>
@@ -20,7 +20,7 @@
 
         <div class="comment-title">
             <div class="comment-left">精彩评论</div>
-            <div class="comment-right">全部111111条</div>
+            <div class="comment-right">全部2100条</div>
         </div>
 
         <div class="bscroll" ref="bscroll">
@@ -52,11 +52,11 @@ export default {
     CommonItemCount
   },
   props: {
-    data: Object
+    comic: {
+      type: Object
+    }
   },
   mounted() {
-    this.getData();
-    this.getCommentData();
     this.$nextTick(() => {
       let bscrollDom = this.$refs.bscroll;
       this.aBScroll = new BScroll(bscrollDom, {});
@@ -68,15 +68,23 @@ export default {
       commentList: []
     };
   },
+  watch: {
+    //观察数据变化之后,在做请求
+    comic: function(newVal, oldVal) {
+      this.comic = newVal; //newVal即是chartData
+      this.getData();
+      this.getCommentData();
+    }
+  },
   methods: {
     des() {
       return (
-        "作品简介:" + "【" + this.data.cate_id + "】" + this.data.description
+        "作品简介:" + "【" + this.comic.cate_id + "】" + this.comic.description
       );
     },
     getData() {
       this.get("v3/appV3_3/ios/phone/comic/guessLike", {
-        comicid: this.data.comic_id + ""
+        comicid: this.comic.comic_id + ""
       }).then(res => {
         res.returnData.comics.forEach(element => {
           if (this.comics.length <= 2) {
@@ -86,10 +94,9 @@ export default {
       });
     },
     getCommentData() {
-      this.$toast(this.data.comic_id + ",,," + this.data.thread_id);
       this.get("v3/appV3_3/ios/phone/comment/list?argCon=2&page=1", {
-        object_id: this.data.comic_id + "",
-        thread_id: this.data.thread_id + ""
+        object_id: this.comic.comic_id + "",
+        thread_id: this.comic.thread_id + ""
       }).then(res => {
         this.commentList = res.returnData.commentList;
       });
@@ -100,7 +107,6 @@ export default {
 
 <style lang="scss" scoped>
 .bscroll {
-  white-space: nowrap;
   width: 100%;
   height: 20vh;
   overflow: hidden;

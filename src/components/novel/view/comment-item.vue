@@ -5,9 +5,7 @@
             <div class="name">{{data.nickname}}</div>
             <div class="time">2016-1-12</div>
         </div>
-        <div>
-            {{data.content}}
-        </div>
+        <div class="comment-content">{{data.content_filter}}</div>
     </div>
 </template>
 
@@ -28,8 +26,7 @@ export default {
   padding: 10px;
   flex-direction: column;
   display: flex;
-  height: 150px;
-  background: rgb(253, 250, 250);
+  background: rgb(247, 224, 224);
   border-radius: 10px;
   .top {
     flex-direction: row;
@@ -50,8 +47,11 @@ export default {
       color: gray;
       font-size: 12px;
       margin-top: 7px;
-      margin-left: 10px;
     }
+  }
+  .comment-content {
+    margin-top: 5px;
+    font-size: 12px;
   }
 }
 </style>

@@ -17,11 +17,10 @@
           </mt-button>
         </div>
       </div>
-      <cross-line/>
 
       <van-tabs type="line" :duration="1" class="tab" :line-width="50">
         <van-tab :title="'详情'">
-          <comic-tab-detail-page :data="comic"/>
+          <comic-tab-detail-page :comic="comic"/>
         </van-tab>
         <van-tab :title="'目录'">
           <div>22</div>
@@ -113,7 +112,7 @@ export default {
         color: darkcyan;
         margin-left: 10px;
         border-radius: 20px;
-        height: 15px;
+        height: 18px;
         font-size: 10px;
         background: powderblue;
       }
