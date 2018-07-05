@@ -52,9 +52,7 @@ export default {
     CommonItemCount
   },
   props: {
-    comic: {
-      type: Object
-    }
+    comicdata: Object
   },
   mounted() {
     this.$nextTick(() => {
@@ -70,8 +68,8 @@ export default {
   },
   watch: {
     //观察数据变化之后,在做请求
-    comic: function(newVal, oldVal) {
-      this.comic = newVal; //newVal即是chartData
+    comicdata: function(newVal, oldVal) {
+      this.comicdata = newVal; //newVal即是chartData
       this.getData();
       this.getCommentData();
     }
@@ -79,12 +77,12 @@ export default {
   methods: {
     des() {
       return (
-        "作品简介:" + "【" + this.comic.cate_id + "】" + this.comic.description
+        "作品简介:" + "【" + this.comicdata.cate_id + "】" + this.comicdata.description
       );
     },
     getData() {
       this.get("v3/appV3_3/ios/phone/comic/guessLike", {
-        comicid: this.comic.comic_id + ""
+        comicid: this.comicdata.comic_id + ""
       }).then(res => {
         res.returnData.comics.forEach(element => {
           if (this.comics.length <= 2) {
@@ -95,8 +93,8 @@ export default {
     },
     getCommentData() {
       this.get("v3/appV3_3/ios/phone/comment/list?argCon=2&page=1", {
-        object_id: this.comic.comic_id + "",
-        thread_id: this.comic.thread_id + ""
+        object_id: this.comicdata.comic_id + "",
+        thread_id: this.comicdata.thread_id + ""
       }).then(res => {
         this.commentList = res.returnData.commentList;
       });

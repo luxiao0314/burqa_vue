@@ -18,12 +18,12 @@
         </div>
       </div>
 
-      <van-tabs type="line" :duration="1" class="tab" :line-width="50">
+      <van-tabs type="line" swipeable :duration="1" class="tab" :line-width="50">
         <van-tab :title="'详情'">
-          <comic-tab-detail-page :comic="comic"/>
+          <comic-tab-detail-page :comicdata="comic" />
         </van-tab>
         <van-tab :title="'目录'">
-          <div>22</div>
+          <comic-tab-directory-page :chapterlist="chapter_list"/>
         </van-tab>
       </van-tabs>
     </div>
@@ -36,10 +36,12 @@ import { Button } from "mint-ui";
 import { Tab, Tabs } from "vant";
 import CrossLine from "@/components/widget/cross-line";
 import ComicTabDetailPage from "@/components/novel/view/comic-tab-detail-page";
+import ComicTabDirectoryPage from "@/components/novel/view/comic-tab-directory-page";
 export default {
   components: {
     CrossLine,
     ComicTabDetailPage,
+    ComicTabDirectoryPage,
     [Tab.name]: Tab,
     [Tabs.name]: Tabs
   },
@@ -48,6 +50,7 @@ export default {
       comicid: this.$route.query.data,
       comic: Object,
       author: Object,
+      chapter_list: []
     };
   },
   created() {
@@ -68,6 +71,7 @@ export default {
         comicid: this.comicid
       }).then(res => {
         this.comic = res.returnData.comic;
+        this.chapter_list = res.returnData.chapter_list;
         this.author = res.returnData.comic.author;
       });
     },

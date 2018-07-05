@@ -42,6 +42,7 @@ export default {
     margin: 2px;
   }
   .title-span {
+    overflow: hidden;
     padding: 5px;
     font-size: 12px;
     white-space: nowrap;
@@ -50,6 +51,7 @@ export default {
     color: #2f2f2f;
   }
   .des-span {
+    overflow: hidden;
     white-space: nowrap;
     padding-left: 5px;
     padding-bottom: 5px;
