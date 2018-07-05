@@ -35,12 +35,12 @@
           </div>
         </div>
         <div v-if="item.itemTitle == '活动'">
-          <common-item :data="item.comics[0]" />
+          <common-item :data="item.comics[0]" @itemClick="push(subItem.comicId)"/>
         </div>
         <div v-else>
           <div v-for="(subItem,index) in item.comics">
             <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem.comicId)"/>
-            <common-item-count v-else :data="subItem " />
+            <common-item-count v-else :data="subItem " @itemClick="push(subItem.comicId)"/>
           </div>
         </div>
       </div>

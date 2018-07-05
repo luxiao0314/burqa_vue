@@ -1,6 +1,6 @@
 <template>
   <div class="types-item">
-    <img :src="data.cover" class="works-img">
+    <img :src="data.cover" class="works-img" @click="click">
     <span class="title-span">{{data.name}}</span>
     <span class="des-span">{{this.getTags(data)}}</span>
   </div>
@@ -24,6 +24,9 @@ export default {
         });
       }
       return tag_tags;
+    },
+    click() {
+      this.$emit('itemClick')
     }
   }
 };
@@ -36,7 +39,7 @@ export default {
   float: left;
   width: 33%;
   .works-img {
-    border:1px solid lightgray;
+    border: 1px solid lightgray;
     display: block;
     width: 100%;
     margin: 2px;

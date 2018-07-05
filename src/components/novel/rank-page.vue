@@ -12,7 +12,7 @@
 
     <van-tabs v-model="active" type="card" swipeable :duration="5" class="tab">
       <van-tab :title="'圣殿榜'">
-        <temple-page :type="2" ref="child1" />
+        <temple-page :type="2" ref="child1"/>
       </van-tab>
       <van-tab :title="'成长榜'">
         <temple-page :type="18" ref="child2" />

@@ -35,7 +35,7 @@
 
         <div class="guess">猜你喜欢</div>
 
-        <common-item-count v-for="(item,index) in comics" :data="item" :key="index" />
+        <common-item-count v-for="(item,index) in comics" :data="item" :key="index" @itemClick="push(item.comic_id)"/>
     </div>
 </template>
 
@@ -98,6 +98,9 @@ export default {
       }).then(res => {
         this.commentList = res.returnData.commentList;
       });
+    },
+    push(comicId){
+      this.$router.push({ path: "/comics-detail", query: { data: this.comicId+"" } }); //comicId为int类型.直接传递为空
     }
   }
 };

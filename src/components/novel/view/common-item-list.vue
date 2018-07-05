@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="list-item">
+    <div class="list-item" @click="click">
       <div class="left"><img :src="data.cover" /></div>
       <div class="right">
         <div class="title">{{data.name}}</div>
@@ -32,6 +32,9 @@ export default {
         tag_tags += element + " ";
       });
       return tag_tags + " | " + data.author;
+    },
+    click() {
+      this.$emit("itemClick");
     }
   }
 };

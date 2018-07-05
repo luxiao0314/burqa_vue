@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div v-for="(subItem,index) in item.comics">
-                    <common-item-count :data="subItem" />
+                    <common-item-count :data="subItem" @itemClick="push(subItem.comicId)"/>
                 </div>
             </div>
         </van-pull-refresh>
@@ -37,6 +37,12 @@ export default {
     this.getData();
   },
   methods: {
+    push(comicId) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: comicId + "" }
+      }); //comicId为int类型.直接传递为空
+    },
     onRefresh() {
       this.getData();
     },

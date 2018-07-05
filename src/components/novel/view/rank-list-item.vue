@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div class="rank-list-item">
-            <div class="left"><img :src="data.cover" /></div>
-            <div class="right">
-                <div class="title">{{data.name}}</div>
-                <div class="des">{{data.short_description}}</div>
-                <div class="tags">{{this.getTags(data.tags)}}</div>
-            </div>
-            <div class="rank">{{data.comic_id}}</div>
-        </div>
-        <cross-line></cross-line>
+  <div>
+    <div class="rank-list-item" @click="click">
+      <div class="left"><img :src="data.cover" /></div>
+      <div class="right">
+        <div class="title">{{data.name}}</div>
+        <div class="des">{{data.short_description}}</div>
+        <div class="tags">{{this.getTags(data.tags)}}</div>
+      </div>
+      <div class="rank">{{data.comic_id}}</div>
     </div>
+    <cross-line></cross-line>
+  </div>
 </template>
 
 <script>
@@ -31,6 +31,9 @@ export default {
         tag_tags += element + " ";
       });
       return tag_tags;
+    },
+    click() {
+      this.$emit("itemClick");
     }
   }
 };

@@ -5,7 +5,8 @@
       <i class="icon-arrow_lift" @click="back"></i>
     </div>
 
-    <img :src="comic.wideCover" class="img-bg">
+    <img :src="comic.wideCover" v-if="comic.wideCover !=null" class="img-bg">
+    <img :src="comic.cover" v-else class="img-bg">
 
     <div class="item">
       <div class="comic-name">{{comic.name}}</div>
@@ -23,7 +24,7 @@
           <comic-tab-detail-page :comicdata="comic" />
         </van-tab>
         <van-tab :title="'目录'">
-          <comic-tab-directory-page :chapterlist="chapter_list"/>
+          <comic-tab-directory-page :chapterlist="chapter_list" />
         </van-tab>
       </van-tabs>
     </div>

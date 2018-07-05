@@ -4,7 +4,7 @@
     <van-pull-refresh v-model="refresh" @refresh="onRefresh">
       <van-list v-model="loading" :finished="finished" @load="onLoad">
         <div v-for="(item,index) in list">
-          <common-item-list :data="item" />
+          <common-item-list :data="item" @itemClick="push(item.comicId)" />
         </div>
       </van-list>
     </van-pull-refresh>
@@ -29,13 +29,19 @@ export default {
       finished: false,
       page: 1,
       list: [],
-      argValue:this.$route.query.argValue
+      argValue: this.$route.query.argValue
     };
   },
   created() {
     this.getData();
   },
   methods: {
+    push(comicId) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: comicId + "" }
+      }); //comicId为int类型.直接传递为空
+    },
     onRefresh() {
       this.refresh = true;
       this.page = 1;

@@ -1,20 +1,20 @@
 <template>
-    <div class="bg">
-        <header-bar text="发现"></header-bar>
-        <van-pull-refresh v-model="refresh" @refresh="onRefresh">
-            <div v-for="(item,index) in newVipList">
-                <div class="works-title-item">
-                    <div class="works-title">{{item.itemTitle}}</div>
-                    <div class="works-des">{{item.description}}
-                        <i class="iconfont icon-more" v-if="item.description!=''"></i>
-                    </div>
-                </div>
-                <div v-for="(subItem,index) in item.comics">
-                    <common-item-count :data="subItem" />
-                </div>
-            </div>
-        </van-pull-refresh>
-    </div>
+  <div class="bg">
+    <header-bar text="发现"></header-bar>
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+      <div v-for="(item,index) in newVipList">
+        <div class="works-title-item">
+          <div class="works-title">{{item.itemTitle}}</div>
+          <div class="works-des">{{item.description}}
+            <i class="iconfont icon-more" v-if="item.description!=''"></i>
+          </div>
+        </div>
+        <div v-for="(subItem,index) in item.comics">
+          <common-item-count :data="subItem" @itemClick="push(subItem.comicId)" />
+        </div>
+      </div>
+    </van-pull-refresh>
+  </div>
 </template>
 
 <script>
@@ -37,6 +37,12 @@ export default {
     this.getData();
   },
   methods: {
+    push(comicId) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: comicId + "" }
+      }); //comicId为int类型.直接传递为空
+    },
     onRefresh() {
       this.getData();
     },
