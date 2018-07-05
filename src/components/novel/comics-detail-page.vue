@@ -5,12 +5,12 @@
       <i class="icon-arrow_lift"></i>
     </div>
 
-    <img :src="data.cover" class="img-bg">
+    <img :src="comic.wideCover" class="img-bg">
 
     <div class="item">
-      <div>{{data.name}}</div>
-      <div>{{data.author}}</div>
-      <div>{{this.getTags(data.tags)}}</div>
+      <div>{{comic.name}}</div>
+      <div>{{author.name}}</div>
+      <div>{{this.getTags(comic.theme_ids)}}</div>
     </div>
 
   </div>
@@ -21,7 +21,9 @@ export default {
   components: {},
   data() {
     return {
-      data: this.$route.query.data
+      comicid: this.$route.query.data,
+      comic: Object,
+      author: Object
     };
   },
   created() {
@@ -38,11 +40,12 @@ export default {
       return tag_tags;
     },
     getData() {
-      // this.get("v3/appV3_3/ios/phone/list/commonComicList?argName=detect&argValue=12&sexType=3",{
-      //     argValue: this.argValue,
-      //     page: this.page
-      //   }
-      // ).then(res => {});
+      this.get("v3/appV3_3/ios/phone/comic/detail_static_new", {
+        comicid: this.comicid
+      }).then(res => {
+        this.comic = res.returnData.comic;
+        this.author = res.returnData.comic.author;
+      });
     }
   }
 };

@@ -24,7 +24,7 @@
             <i class="iconfont icon-more"></i>
           </div>
         </div>
-        <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" />
+        <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" @itemClick="push(subItem.comicId)"/>
       </div>
       <!--新作推送-->
       <div v-else class="popular-works">
@@ -39,7 +39,7 @@
         </div>
         <div v-else>
           <div v-for="(subItem,index) in item.comics">
-            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem)" />
+            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem.comicId)"/>
             <common-item-count v-else :data="subItem " />
           </div>
         </div>
@@ -77,11 +77,8 @@ export default {
         this.comicLists = res.returnData.comicLists;
       });
     },
-    push(subItem) {
-      this.$router.push({
-        path: "/comics-detail",
-        query: { data: subItem }
-      });
+    push(comicId) {
+      this.$router.push({ path: "/comics-detail", query: { data: comicId+"" } }); //comicId为int类型.直接传递为空
     },
     more(argValue) {
       this.$router.push({ path: "/common", query: { argValue: argValue } });

@@ -1,9 +1,9 @@
 <template>
-    <div class="types-item">
-        <img :src="data.cover" class="works-img">
-        <span class="title-span">{{data.name}}</span>
-        <span class="des-span">{{data.short_description}}</span>
-    </div>
+  <div class="types-item">
+    <img :src="data.cover" class="works-img" @click="click">
+    <span class="title-span">{{data.name}}</span>
+    <span class="des-span">{{data.short_description}}</span>
+  </div>
 </template>
 
 <script>
@@ -11,6 +11,11 @@ export default {
   props: {
     data: {
       type: Object
+    }
+  },
+  methods: {
+    click() {
+      this.$emit("itemClick");
     }
   }
 };
