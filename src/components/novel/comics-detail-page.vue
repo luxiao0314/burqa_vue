@@ -2,23 +2,48 @@
   <div class="page">
 
     <div class="header">
-      <i class="icon-arrow_lift"></i>
+      <i class="icon-arrow_lift" @click="back"></i>
     </div>
 
     <img :src="comic.wideCover" class="img-bg">
 
     <div class="item">
-      <div>{{comic.name}}</div>
-      <div>{{author.name}}</div>
-      <div>{{this.getTags(comic.theme_ids)}}</div>
+      <div class="comic-name">{{comic.name}}</div>
+      <div class="item-tag">
+        <div class="author-name">{{author.name}}</div>
+        <div v-for="tag in comic.theme_ids">
+          <mt-button type="primary" size="small" class="button">
+            {{tag}}
+          </mt-button>
+        </div>
+      </div>
+      <cross-line/>
+
+      <van-tabs type="line" swipeable :duration="1" class="tab" :line-width="50">
+        <van-tab :title="'详情'">
+          <comic-tab-detail-page :data="comic"/>
+        </van-tab>
+        <van-tab :title="'目录'">
+          <div>22</div>
+        </van-tab>
+      </van-tabs>
     </div>
 
   </div>
 </template>
 
 <script>
+import { Button } from "mint-ui";
+import { Tab, Tabs } from "vant";
+import CrossLine from "@/components/widget/cross-line";
+import ComicTabDetailPage from "@/components/novel/view/comic-tab-detail-page";
 export default {
-  components: {},
+  components: {
+    CrossLine,
+    ComicTabDetailPage,
+    [Tab.name]: Tab,
+    [Tabs.name]: Tabs
+  },
   data() {
     return {
       comicid: this.$route.query.data,
@@ -46,6 +71,9 @@ export default {
         this.comic = res.returnData.comic;
         this.author = res.returnData.comic.author;
       });
+    },
+    back() {
+      this.$router.push({ path: "/" });
     }
   }
 };
@@ -53,6 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .page {
+  background: white;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -64,6 +93,31 @@ export default {
   }
   img {
     width: 100%;
+  }
+  .item {
+    padding: 10px;
+    .item-tag {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      .comic-name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .author-name {
+        flex: 1;
+        font-size: 12px;
+        color: darkcyan;
+      }
+      .button {
+        color: darkcyan;
+        margin-left: 10px;
+        border-radius: 20px;
+        height: 15px;
+        font-size: 10px;
+        background: powderblue;
+      }
+    }
   }
 }
 </style>
