@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.12.4",
     "mint-ui": "^2.2.13",
     "nprogress": "^0.2.0",
     "qs": "^6.5.2",

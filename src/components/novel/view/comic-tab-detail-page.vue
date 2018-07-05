@@ -15,6 +15,7 @@
                 <div class="text-color">本月月票</div>
             </div>
         </div>
+
         <cross-line/>
 
         <div class="comment-title">
@@ -22,34 +23,88 @@
             <div class="comment-right">全部111111条</div>
         </div>
 
-        <div class="comment">
-            <comment-item v-for="(item,index) in 10" :key="index"/>
+        <div class="bscroll" ref="bscroll">
+            <div class="bscroll-container">
+                <comment-item v-for="(item,index) in commentList" :key="index" :data="item" />
+            </div>
         </div>
+
+        <div class="write-comment">写评论</div>
+
+        <cross-line/>
+
+        <div class="guess">猜你喜欢</div>
+
+        <common-item-count v-for="(item,index) in comics" :data="item" :key="index" />
     </div>
 </template>
 
 <script>
 import CrossLine from "@/components/widget/cross-line";
 import CommentItem from "@/components/novel/view/comment-item";
+import BScroll from "better-scroll";
+import CommonItemCount from "@/components/novel/view/common-item-count";
 export default {
   components: {
     CrossLine,
-    CommentItem
+    CommentItem,
+    BScroll,
+    CommonItemCount
   },
   props: {
     data: Object
+  },
+  mounted() {
+    this.getData();
+    this.getCommentData();
+    this.$nextTick(() => {
+      let bscrollDom = this.$refs.bscroll;
+      this.aBScroll = new BScroll(bscrollDom, {});
+    });
+  },
+  data() {
+    return {
+      comics: [],
+      commentList: []
+    };
   },
   methods: {
     des() {
       return (
         "作品简介:" + "【" + this.data.cate_id + "】" + this.data.description
       );
+    },
+    getData() {
+      this.get("v3/appV3_3/ios/phone/comic/guessLike", {
+        comicid: this.data.comic_id + ""
+      }).then(res => {
+        res.returnData.comics.forEach(element => {
+          if (this.comics.length <= 2) {
+            this.comics.push(element);
+          }
+        });
+      });
+    },
+    getCommentData() {
+      this.$toast(this.data.comic_id + ",,," + this.data.thread_id);
+      this.get("v3/appV3_3/ios/phone/comment/list?argCon=2&page=1", {
+        object_id: this.data.comic_id + "",
+        thread_id: this.data.thread_id + ""
+      }).then(res => {
+        this.commentList = res.returnData.commentList;
+      });
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.bscroll {
+  white-space: nowrap;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
 .des {
   margin-top: 10px;
   font-size: 12px;
@@ -86,9 +141,20 @@ export default {
     color: gray;
   }
 }
-.comment{
-     display: flex;
+.comment {
+  display: flex;
   flex-direction: row;
+}
+.write-comment {
+  padding: 10px;
+  font-size: 12px;
+  color: aquamarine;
+  text-align: center;
+}
+.guess {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
 }
 </style>
 

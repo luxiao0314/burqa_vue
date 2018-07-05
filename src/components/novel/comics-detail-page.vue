@@ -19,7 +19,7 @@
       </div>
       <cross-line/>
 
-      <van-tabs type="line" swipeable :duration="1" class="tab" :line-width="50">
+      <van-tabs type="line" :duration="1" class="tab" :line-width="50">
         <van-tab :title="'详情'">
           <comic-tab-detail-page :data="comic"/>
         </van-tab>
@@ -48,7 +48,7 @@ export default {
     return {
       comicid: this.$route.query.data,
       comic: Object,
-      author: Object
+      author: Object,
     };
   },
   created() {
