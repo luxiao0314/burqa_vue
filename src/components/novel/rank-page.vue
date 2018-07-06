@@ -85,6 +85,7 @@ export default {
   height: 100%;
   background-color: white;
   .title-tab {
+    margin-top: 35px;
     padding: 10px;
     display: flex;
     flex-direction: row;

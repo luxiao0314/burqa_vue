@@ -40,9 +40,10 @@ export default {
 .header-bar {
   top: 0;
   width: 100%;
+  position: fixed;
   height: 40px;
   background: #fff;
-  z-index: 10;
+  z-index: 999;
   i {
     float: left;
     margin: 12px 0 0 10px;

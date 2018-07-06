@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
     <header-bar text="发现"></header-bar>
-    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh" class="refresh">
       <van-list v-model="loading" :finished="finished" @load="onLoad">
         <div v-for="(item,index) in list">
           <common-item-list :data="item" @itemClick="push(item.comicId)" />
@@ -80,6 +80,9 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: white;
+  .refresh{
+    margin-top: 35px;
+  }
   .works-title-item {
     padding: 10px;
     display: flex;

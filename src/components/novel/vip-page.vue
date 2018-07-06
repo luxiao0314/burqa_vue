@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
     <header-bar text="发现"></header-bar>
-    <van-pull-refresh v-model="refresh" @refresh="onRefresh">
+    <van-pull-refresh v-model="refresh" @refresh="onRefresh" class="refresh">
       <div v-for="(item,index) in newVipList">
         <div class="works-title-item">
           <div class="works-title">{{item.itemTitle}}</div>
@@ -60,6 +60,9 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: white;
+  .refresh{
+    margin-top: 35px;
+  }
   .works-title-item {
     padding: 10px;
     display: flex;

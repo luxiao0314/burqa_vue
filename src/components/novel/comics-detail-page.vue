@@ -91,9 +91,10 @@ export default {
   flex-direction: column;
   position: relative;
   .header {
+
     padding: 10px;
     width: 100%;
-    position: absolute;
+    position: fixed;
   }
   img {
     width: 100%;
