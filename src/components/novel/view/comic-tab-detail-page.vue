@@ -1,42 +1,43 @@
 <template>
-    <div>
-        <div class="des">{{this.des()}}</div>
-        <div class="num">
-            <div class="num-value">
-                <div class="num-color">317</div>
-                <div class="text-color">热度值</div>
-            </div>
-            <div class="num-value">
-                <div class="num-color">4200</div>
-                <div class="text-color">收藏量</div>
-            </div>
-            <div class="num-value">
-                <div class="num-color">5000</div>
-                <div class="text-color">本月月票</div>
-            </div>
-        </div>
-
-        <cross-line/>
-
-        <div class="comment-title">
-            <div class="comment-left">精彩评论</div>
-            <div class="comment-right">全部2100条</div>
-        </div>
-
-        <div class="bscroll" ref="bscroll">
-            <div class="bscroll-container">
-                <comment-item v-for="(item,index) in commentList" :key="index" :data="item" />
-            </div>
-        </div>
-
-        <div class="write-comment">写评论</div>
-
-        <cross-line/>
-
-        <div class="guess">猜你喜欢</div>
-
-        <common-item-count v-for="(item,index) in comics" :data="item" :key="index" @itemClick="push(item.comic_id)"/>
+  <div>
+    <div class="des">{{this.des()}}</div>
+    <div class="num">
+      <div class="num-value">
+        <div class="num-color">317</div>
+        <div class="text-color">热度值</div>
+      </div>
+      <div class="num-value">
+        <div class="num-color">4200</div>
+        <div class="text-color">收藏量</div>
+      </div>
+      <div class="num-value">
+        <div class="num-color">5000</div>
+        <div class="text-color">本月月票</div>
+      </div>
     </div>
+
+    <cross-line/>
+
+    <div class="comment-title">
+      <div class="comment-left">精彩评论</div>
+      <div class="comment-right">全部2100条</div>
+    </div>
+
+    <div class="bscroll" ref="bscroll">
+      <div class="bscroll-container">
+        <comment-item v-for="(item,index) in commentList" :key="index" :data="item" />
+        <div v-if="commentCount=='0'" class="no-comment">暂无评论</div>
+      </div>
+    </div>
+
+    <div class="write-comment">写评论</div>
+
+    <cross-line/>
+
+    <div class="guess">猜你喜欢</div>
+
+    <common-item-count v-for="(item,index) in comics" :data="item" :key="index" @itemClick="push(item.comic_id)" />
+  </div>
 </template>
 
 <script>
@@ -63,7 +64,8 @@ export default {
   data() {
     return {
       comics: [],
-      commentList: []
+      commentList: [],
+      commentCount: "0"
     };
   },
   watch: {
@@ -77,7 +79,11 @@ export default {
   methods: {
     des() {
       return (
-        "作品简介:" + "【" + this.comicdata.cate_id + "】" + this.comicdata.description
+        "作品简介:" +
+        "【" +
+        this.comicdata.cate_id +
+        "】" +
+        this.comicdata.description
       );
     },
     getData() {
@@ -97,10 +103,14 @@ export default {
         thread_id: this.comicdata.thread_id + ""
       }).then(res => {
         this.commentList = res.returnData.commentList;
+        this.commentCount = res.returnData.commentCount;
       });
     },
-    push(comicId){
-      this.$router.push({ path: "/comics-detail", query: { data: this.comicId+"" } }); //comicId为int类型.直接传递为空
+    push(comicId) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: this.comicId + "" }
+      }); //comicId为int类型.直接传递为空
     }
   }
 };
@@ -111,6 +121,10 @@ export default {
   width: 100%;
   height: 20vh;
   overflow: hidden;
+  .no-comment {
+    font-size: 14px;
+    text-align: center;
+  }
 }
 .des {
   margin-top: 10px;

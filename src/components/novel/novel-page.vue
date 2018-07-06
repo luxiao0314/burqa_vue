@@ -3,7 +3,7 @@
     <div class="swipe-wrapper">
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
-          <img :src="image.cover" class="banner-img" @click="click(image)"/>
+          <img :src="image.cover" class="banner-img" @click="click(image)" />
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -24,7 +24,7 @@
             <i class="iconfont icon-more"></i>
           </div>
         </div>
-        <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" @itemClick="push(subItem.comicId)"/>
+        <popular-works-item v-for="subItem in item.comics" :key="subItem.cover" :data="subItem" @itemClick="push(subItem.comicId)" />
       </div>
       <!--新作推送-->
       <div v-else class="popular-works">
@@ -35,12 +35,12 @@
           </div>
         </div>
         <div v-if="item.itemTitle == '活动'">
-          <common-item :data="item.comics[0]" @itemClick="push(subItem.comicId)"/>
+          <common-item :data="item.comics[0]" @itemClick="push(subItem.comicId)" />
         </div>
         <div v-else>
           <div v-for="(subItem,index) in item.comics">
-            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem.comicId)"/>
-            <common-item-count v-else :data="subItem " @itemClick="push(subItem.comicId)"/>
+            <common-item v-if="subItem.cover.includes('ubig') && index == 0" :data="subItem" @itemClick="push(subItem.comicId)" />
+            <common-item-count v-else :data="subItem " @itemClick="push(subItem.comicId)" />
           </div>
         </div>
       </div>
@@ -78,7 +78,10 @@ export default {
       });
     },
     push(comicId) {
-      this.$router.push({ path: "/comics-detail", query: { data: comicId+"" } }); //comicId为int类型.直接传递为空
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: comicId + "" }
+      }); //comicId为int类型.直接传递为空
     },
     more(argValue) {
       this.$router.push({ path: "/common", query: { argValue: argValue } });
@@ -96,12 +99,15 @@ export default {
         this.$router.push({ path: "/classify" });
       }
     },
-    click(img){
-      if(img.linkType == 3){
-          this.push(img.ext[0].val)
-      }else{
-        this.$router.push({ path: "/html-page"});
+    click(img) {
+      if (img.linkType == 3) {
+        this.push(img.ext[0].val);
+      } else {
+        this.$router.push({ path: "/html-page" });
       }
+    },
+    video() {
+      this.$toast(video);
     }
   }
 };
@@ -125,7 +131,7 @@ export default {
 }
 .popular-works {
   flex: 1;
-  overflow:hidden;
+  overflow: hidden;
   // background-color: white;
 }
 .works-title-item {
