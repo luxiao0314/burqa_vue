@@ -21,6 +21,8 @@ const ClassifyPage = (resolve) =>
   import ('@/components/novel/classify-page').then((module) => resolve(module))
 const ComicsDetailPage = (resolve) =>
   import ('@/components/novel/comics-detail-page').then((module) => resolve(module))
+const HtmlPage = (resolve) =>
+  import ('@/components/novel/html-page').then((module) => resolve(module))
 
 export default new Router({
   routes: [{
@@ -51,6 +53,10 @@ export default new Router({
     {
       path: '/comics-detail',
       component: ComicsDetailPage
+    },
+    {
+      path: '/html-page',
+      component: HtmlPage
     }
   ]
 })

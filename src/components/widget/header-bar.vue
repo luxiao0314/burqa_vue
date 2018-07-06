@@ -26,7 +26,8 @@ export default {
   watch: {},
   methods: {
     back() {
-      this.$router.push({ path: "/" });
+      // this.$router.push({ path: "/" });
+      this.$router.go(-1)
     }
   },
   filters: {},

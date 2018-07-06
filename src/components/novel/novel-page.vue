@@ -3,7 +3,7 @@
     <div class="swipe-wrapper">
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
-          <img :src="image.cover" class="banner-img" />
+          <img :src="image.cover" class="banner-img" @click="click(image)"/>
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -95,6 +95,13 @@ export default {
       } else if (index == 4) {
         this.$router.push({ path: "/classify" });
       }
+    },
+    click(img){
+      if(img.linkType == 3){
+          this.push(img.ext[0].val)
+      }else{
+        this.$router.push({ path: "/html-page"});
+      }
     }
   }
 };
@@ -113,16 +120,19 @@ export default {
   flex-direction: row;
 }
 .tag-img {
+  height: 100%;
   width: 100%;
 }
 .popular-works {
   flex: 1;
-  background-color: white;
+  overflow:hidden;
+  // background-color: white;
 }
 .works-title-item {
   margin-top: 10px;
   padding: 10px;
   display: flex;
+  background-color: white;
   flex-direction: row;
   .works-title {
     flex: 1;

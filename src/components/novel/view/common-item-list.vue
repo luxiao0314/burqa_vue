@@ -65,13 +65,16 @@ export default {
       font-size: 8px;
     }
     .des {
+      flex: 1;
       color: gray;
       line-height: 1.5;
       margin-top: 5px;
       margin-right: 15px;
-      text-overflow: ellipsis;
-      font-size: 8px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
       overflow: hidden;
+      font-size: 8px;
     }
     .time {
       float: bottom;

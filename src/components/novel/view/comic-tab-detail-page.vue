@@ -52,7 +52,7 @@ export default {
     CommonItemCount
   },
   props: {
-    comicdata: Object
+    comicdata: null
   },
   mounted() {
     this.$nextTick(() => {
