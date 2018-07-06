@@ -6,7 +6,7 @@
       <div class="tags">{{this.getTags(data.tags)}}</div>
       <cross-line></cross-line>
     </div>
-    <mt-button type="primary" size="small" class="button">
+    <mt-button type="primary" size="small" class="button" @click="click">
       阅读漫画
     </mt-button>
   </div>
@@ -31,6 +31,9 @@ export default {
         tag_tags += element + " ";
       });
       return tag_tags;
+    },
+    click(){
+      this.$emit('itemClick')
     }
   }
 };

@@ -6,11 +6,11 @@
       <div v-if="item.type == 2" class="list-item">
         <div class="list-title">{{item.comicListTitle}}</div>
         <div v-for="listItem in item.dayComicItemList">
-          <news-list-item :data="listItem" />
+          <news-list-item :data="listItem" @itemClick="push(listItem.comicId)" />
         </div>
       </div>
       <div v-else>
-        <img :src="item.cover" class="img" />
+        <img :src="item.cover" class="img" @click="push(item.comicId)" />
       </div>
     </div>
   </div>
@@ -32,6 +32,14 @@ export default {
   props: {
     data: {
       type: Object
+    }
+  },
+  methods: {
+    push(comicId) {
+      this.$router.push({
+        path: "/comics-detail",
+        query: { data: comicId + "" }
+      }); //comicId为int类型.直接传递为空
     }
   }
 };
