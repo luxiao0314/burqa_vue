@@ -45,6 +45,7 @@ export default {
   display: flex;
   flex-direction: row;
   padding: 10px 0;
+  height: 110px;
   overflow: hidden;
   img {
     display: block;
@@ -53,7 +54,6 @@ export default {
   }
   .right {
     margin-left: 10px;
-    height: 80px;
     display: flex;
     flex-direction: column;
     .title {
@@ -71,6 +71,7 @@ export default {
       margin-right: 15px;
       text-overflow: ellipsis;
       font-size: 8px;
+      overflow: hidden;
     }
     .time {
       float: bottom;
