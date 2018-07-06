@@ -44,7 +44,7 @@ export default {
 .list-item {
   display: flex;
   flex-direction: row;
-  padding: 10px 0;
+  padding: 10px;
   height: 110px;
   overflow: hidden;
   img {
