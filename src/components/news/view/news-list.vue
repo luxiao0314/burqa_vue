@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .news-list {
   flex-direction: row;
   overflow: hidden;

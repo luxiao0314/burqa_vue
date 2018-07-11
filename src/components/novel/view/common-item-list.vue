@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list-item {
   display: flex;
   flex-direction: row;
@@ -65,7 +65,7 @@ export default {
       font-size: 8px;
     }
     .des {
-      // flex: 1;
+      flex: 1;
       color: gray;
       line-height: 1.5;
       margin-top: 5px;

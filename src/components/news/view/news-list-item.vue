@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .news-list-item {
   margin-bottom: 5px;
   display: flex;
