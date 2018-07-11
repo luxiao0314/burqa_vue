@@ -3,7 +3,13 @@
     <div class="swipe-wrapper">
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
-          <img :src="image.cover" class="banner-img" @click="click(image)" />
+
+          <img :src="image.cover" class="banner-img" @click="click(image)" v-if="image.linkType == 3"/>
+
+          <a :href="image.ext[0].val" v-else>
+            <img :src="image.cover" class="banner-img">
+          </a>
+
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -100,11 +106,7 @@ export default {
       }
     },
     click(img) {
-      if (img.linkType == 3) {
-        this.push(img.ext[0].val);
-      } else {
-        this.$router.push({ path: "/html-page" });
-      }
+      this.push(img.ext[0].val);
     },
     video() {
       this.$toast(video);
