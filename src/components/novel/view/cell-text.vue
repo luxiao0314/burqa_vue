@@ -1,8 +1,10 @@
 <template>
-    <div class="cell-item" @click="click">
-        <span class="title-span">{{chapter.name}}</span>
-        <span class="vip-span">vip</span>
+  <a :href="url+chapter.chapter_id+'.html'">
+    <div class="cell-item">
+      <span class="title-span">{{chapter.name}}</span>
+      <span class="vip-span">vip</span>
     </div>
+  </a>
 </template>
 
 <script>
@@ -12,8 +14,13 @@ export default {
   },
   methods: {
     click() {
-      this.$emit("itemClick");
+      this.$toast(this.chapter.chapter_id);
     }
+  },
+  data() {
+    return {
+      url: "http://m.u17.com/r/"
+    };
   }
 };
 </script>

@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <div class="title">
-            <div class="time">最后一章更新于2018-07-05</div>
-            <div class="sort">正序</div>
-        </div>
-
-        <cell-text v-for="item in chapterlist" :key="item.chapter_id" :chapter="item" />
+  <div>
+    <div class="title">
+      <div class="time">最后一章更新于2018-07-05</div>
+      <div class="sort">正序</div>
     </div>
+
+    <div v-for="(item,index) in chapterlist" :key="index">
+      <cell-text :chapter="item" />
+    </div>
+  </div>
 </template>
 
 <script>

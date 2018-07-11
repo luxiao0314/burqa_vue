@@ -77,7 +77,7 @@ export default {
       });
     },
     back() {
-      this.$router.back()
+      this.$router.back();
     }
   }
 };
@@ -91,7 +91,6 @@ export default {
   flex-direction: column;
   position: relative;
   .header {
-
     padding: 10px;
     width: 100%;
     position: fixed;
