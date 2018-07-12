@@ -20,7 +20,7 @@
 
     <div class="comment-title">
       <div class="comment-left">精彩评论</div>
-      <div class="comment-right">全部2100条</div>
+      <div class="comment-right" @click="pushToComment()">全部{{pageCount}}条</div>
     </div>
 
     <div class="bscroll" ref="bscroll">
@@ -65,7 +65,8 @@ export default {
     return {
       comics: [],
       commentList: [],
-      commentCount: "0"
+      commentCount: "0",
+      pageCount: 0
     };
   },
   watch: {
@@ -104,12 +105,19 @@ export default {
       }).then(res => {
         this.commentList = res.returnData.commentList;
         this.commentCount = res.returnData.commentCount;
+        this.pageCount = res.returnData.pageCount;
       });
     },
     push(comicId) {
       this.$router.push({
         path: "/comics-detail",
         query: { data: this.comicId + "" }
+      }); //comicId为int类型.直接传递为空
+    },
+    pushToComment(){
+      this.$router.push({
+        path: "/comment-page",
+        query: { comicdata: this.comicdata,argCon:"2" }
       }); //comicId为int类型.直接传递为空
     }
   }

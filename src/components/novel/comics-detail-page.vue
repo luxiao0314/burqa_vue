@@ -12,9 +12,9 @@
       <div class="comic-name">{{comic.name}}</div>
       <div class="item-tag">
         <div class="author-name">{{author.name}}</div>
-        <div v-for="tag in comic.theme_ids">
-          <mt-button type="primary" size="small" class="button">
-            {{tag}}
+        <div v-for="item in comic.classifyTags">
+          <mt-button type="primary" size="small" class="button" @click="push(item)">
+            {{item.name}}
           </mt-button>
         </div>
       </div>
@@ -78,6 +78,9 @@ export default {
     },
     back() {
       this.$router.back();
+    },
+    push(item) {
+      this.$router.push({ path: "/common", query: { argValue: item.argVal, argName: item.argName} });
     }
   }
 };

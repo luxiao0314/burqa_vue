@@ -26,7 +26,7 @@ export default {
   padding: 10px;
   flex-direction: column;
   display: flex;
-  background: rgb(247, 224, 224);
+  background: #F9F9F9;
   border-radius: 10px;
   .top {
     flex-direction: row;

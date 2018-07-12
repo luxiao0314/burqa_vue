@@ -23,6 +23,8 @@ const ComicsDetailPage = (resolve) =>
   import ('@/components/novel/comics-detail-page').then((module) => resolve(module))
 const HtmlPage = (resolve) =>
   import ('@/components/novel/html-page').then((module) => resolve(module))
+const CommentPage = (resolve) =>
+  import ('@/components/novel/comment-page').then((module) => resolve(module))
 
 export default new Router({
   routes: [{
@@ -63,7 +65,7 @@ export default new Router({
       component: CommonPage,
       meta: {
         index: 1,
-        keepAlive: true
+        keepAlive: false
       }
     },
     {
@@ -78,7 +80,15 @@ export default new Router({
       path: '/comics-detail',
       component: ComicsDetailPage,
       meta: {
-        index: 2,
+        index: 1,
+        keepAlive: false
+      }
+    },
+    {
+      path: '/comment-page',
+      component: CommentPage,
+      meta: {
+        index: 1,
         keepAlive: false
       }
     },

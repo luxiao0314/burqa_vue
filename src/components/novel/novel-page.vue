@@ -4,7 +4,7 @@
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
 
-          <img :src="image.cover" class="banner-img" @click="click(image)" v-if="image.linkType == 3"/>
+          <img :src="image.cover" class="banner-img" @click="click(image)" v-if="image.linkType == 3" />
 
           <a :href="image.ext[0].val" v-else>
             <img :src="image.cover" class="banner-img">
@@ -100,7 +100,10 @@ export default {
       } else if (index == 2) {
         this.$router.push({ path: "/subscibe" });
       } else if (index == 3) {
-        this.$router.push({ path: "/common", query: { argValue: "12" } });
+        this.$router.push({
+          path: "/common",
+          query: { argValue: "12", argName: "detect" }
+        });
       } else if (index == 4) {
         this.$router.push({ path: "/classify" });
       }

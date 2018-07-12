@@ -29,7 +29,8 @@ export default {
       finished: false,
       page: 1,
       list: [],
-      argValue: this.$route.query.argValue
+      argValue: this.$route.query.argValue,
+      argName:this.$route.query.argName
     };
   },
   created() {
@@ -54,10 +55,11 @@ export default {
     },
     getData() {
       this.get(
-        "v3/appV3_3/ios/phone/list/commonComicList?argName=detect&argValue=12&sexType=3",
+        "v3/appV3_3/ios/phone/list/commonComicList?argName=detect&sexType=3",
         {
           argValue: this.argValue,
-          page: this.page
+          page: this.page,
+          argName:this.argName
         }
       ).then(res => {
         this.refresh = false;
