@@ -28,31 +28,59 @@ export default new Router({
   routes: [{
       path: '/',
       name: 'index',
-      component: Index
+      component: Index,
+      meta: {
+        index: 0,
+        keepAlive: true
+      }
     },
     {
       path: '/rank',
-      component: RankPage
+      component: RankPage,
+      meta: {
+        index: 1,
+        keepAlive: true
+      }
     },
     {
       path: '/vip',
-      component: VipPage
+      component: VipPage,
+      meta: {
+        index: 1,
+        keepAlive: true
+      }
     },
     {
       path: '/subscibe',
-      component: SubscibePage
+      component: SubscibePage,
+      meta: {
+        index: 1,
+        keepAlive: true
+      }
     },
     {
       path: '/common',
-      component: CommonPage
+      component: CommonPage,
+      meta: {
+        index: 1,
+        keepAlive: true
+      }
     },
     {
       path: '/classify',
-      component: ClassifyPage
+      component: ClassifyPage,
+      meta: {
+        index: 1,
+        keepAlive: true
+      }
     },
     {
       path: '/comics-detail',
-      component: ComicsDetailPage
+      component: ComicsDetailPage,
+      meta: {
+        index: 2,
+        keepAlive: false
+      }
     },
     {
       path: '/html-page',
