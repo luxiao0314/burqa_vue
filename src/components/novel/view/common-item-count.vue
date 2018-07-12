@@ -1,6 +1,6 @@
 <template>
   <div class="types-item">
-    <img :src="data.cover" class="works-img" @click="click">
+    <img :src="getImgUrl()" class="works-img" @click="click">
     <span class="title-span">{{data.name}}</span>
     <span class="des-span">{{this.getTags(data)}}</span>
   </div>
@@ -26,7 +26,14 @@ export default {
       return tag_tags;
     },
     click() {
-      this.$emit('itemClick')
+      this.$emit("itemClick");
+    },
+    getImgUrl() {
+      if (this.data.cover == null) {
+        return this.data.coverUrl;
+      } else {
+        return this.data.cover;
+      }
     }
   }
 };

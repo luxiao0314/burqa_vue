@@ -11,7 +11,7 @@
     <div class="item">
       <div class="comic-name">{{comic.name}}</div>
       <div class="item-tag">
-        <div class="author-name">{{author.name}}</div>
+        <div class="author-name" @click="pushAuthor()">{{author.name}}</div>
         <div v-for="item in comic.classifyTags">
           <mt-button type="primary" size="small" class="button" @click="push(item)">
             {{item.name}}
@@ -51,6 +51,7 @@ export default {
       comicid: this.$route.query.data,
       comic: Object,
       author: Object,
+      otherWorks: [],
       chapter_list: []
     };
   },
@@ -74,13 +75,23 @@ export default {
         this.comic = res.returnData.comic;
         this.chapter_list = res.returnData.chapter_list;
         this.author = res.returnData.comic.author;
+        this.otherWorks = res.returnData.otherWorks;
       });
     },
     back() {
       this.$router.back();
     },
     push(item) {
-      this.$router.push({ path: "/common", query: { argValue: item.argVal, argName: item.argName} });
+      this.$router.push({
+        path: "/common",
+        query: { argValue: item.argVal, argName: item.argName }
+      });
+    },
+    pushAuthor() {
+      this.$router.push({
+        path: "/author-page",
+        query: { otherWorks: this.otherWorks, author: this.author }
+      });
     }
   }
 };
