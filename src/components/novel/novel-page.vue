@@ -1,15 +1,17 @@
 <template>
   <div class="novel-page">
     <div class="swipe-wrapper">
+
+      <div class="header">
+        <img slot="icon" src="../../assets/img/search.png" class="search-img" />
+      </div>
+
       <mt-swipe :auto="4000">
         <mt-swipe-item v-for="(image, index) in galleryItems" :key="index">
-
           <img :src="image.cover" class="banner-img" @click="click(image)" v-if="image.linkType == 3" />
-
           <a :href="image.ext[0].val" v-else>
             <img :src="image.cover" class="banner-img">
           </a>
-
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -123,6 +125,7 @@ export default {
 
 <style lang="scss" scoped>
 .swipe-wrapper {
+  position: relative;
   width: 100%;
   height: 220px;
 }
@@ -132,6 +135,18 @@ export default {
 .tag-item {
   display: flex;
   flex-direction: row;
+}
+.header {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  z-index: 2;
+  .search-img {
+    float: right;
+    margin-right: 20px;
+    height: 30px;
+    width: 30px;
+  }
 }
 .tag-img {
   height: 100%;

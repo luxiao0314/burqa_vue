@@ -3,7 +3,7 @@
     <header-bar text="发现"></header-bar>
     <van-pull-refresh v-model="refresh" @refresh="onRefresh" class="refresh">
       <div v-for="(item,index) in newVipList">
-        <div class="works-title-item">
+        <div class="works-title-item" @click="pushCommon(item)">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
             <i class="iconfont icon-more" v-if="item.description!=''"></i>
@@ -51,6 +51,14 @@ export default {
         this.refresh = false;
         this.newVipList = res.returnData.newVipList;
       });
+    },
+    pushCommon(item) {
+      if (item.description != "") {
+        this.$router.push({
+          path: "/common",
+          query: { argValue: item.argValue, argName: item.argName }
+        });
+      }
     }
   }
 };
@@ -60,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: white;
-  .refresh{
+  .refresh {
     margin-top: 35px;
   }
   .works-title-item {
