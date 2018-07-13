@@ -57,6 +57,10 @@ export default {
   },
   created() {
     this.getData();
+    this.$root.eventHub.$on("refresh", target => {
+      this.comicid = target;
+      this.getData()
+    });
   },
   methods: {
     getTags(tags) {

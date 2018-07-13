@@ -29,8 +29,8 @@ export default {
       finished: false,
       page: 1,
       list: [],
-      argValue: this.$route.query.argValue,
-      argName:this.$route.query.argName
+      argValue: "12",
+      argName: "detect"
     };
   },
   created() {
@@ -54,12 +54,18 @@ export default {
       this.getData();
     },
     getData() {
+      if (this.$route.query.argValue != null) {
+        this.argValue = this.$route.query.argValue;
+      }
+      if (this.$route.query.argName != null) {
+        this.argName = this.$route.query.argName;
+      }
       this.get(
         "v3/appV3_3/ios/phone/list/commonComicList?argName=detect&sexType=3",
         {
           argValue: this.argValue,
           page: this.page,
-          argName:this.argName
+          argName: this.argName
         }
       ).then(res => {
         this.refresh = false;
@@ -82,7 +88,7 @@ export default {
 <style lang="scss" scoped>
 .bg {
   background-color: white;
-  .refresh{
+  .refresh {
     margin-top: 35px;
   }
   .works-title-item {

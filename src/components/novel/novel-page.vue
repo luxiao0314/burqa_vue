@@ -24,7 +24,7 @@
       </div>
       <!--超人气作品-->
       <div v-else-if="item.itemTitle == '超人气作品'" class="popular-works">
-        <div class="works-title-item" @click="more(item.argValue)">
+        <div class="works-title-item" @click="more(item)">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
             <i class="iconfont icon-more"></i>
@@ -34,7 +34,7 @@
       </div>
       <!--新作推送-->
       <div v-else class="popular-works">
-        <div class="works-title-item" @click="more(item.argValue)">
+        <div class="works-title-item" @click="more(item)">
           <div class="works-title">{{item.itemTitle}}</div>
           <div class="works-des">{{item.description}}
             <i class="iconfont icon-more"></i>
@@ -89,8 +89,11 @@ export default {
         query: { data: comicId + "" }
       }); //comicId为int类型.直接传递为空
     },
-    more(argValue) {
-      this.$router.push({ path: "/common", query: { argValue: argValue } });
+    more(item) {
+      this.$router.push({
+        path: "/common",
+        query: { argValue: item.argValue, argName: item.argName }
+      });
     },
     tabClick(index) {
       if (index == 0) {

@@ -109,10 +109,8 @@ export default {
       });
     },
     push(comicId) {
-      this.$router.push({
-        path: "/comics-detail",
-        query: { data: this.comicId + "" }
-      }); //comicId为int类型.直接传递为空
+      // this.$router.go(0)
+      this.$root.eventHub.$emit('refresh', comicId);
     },
     pushToComment(){
       this.$router.push({

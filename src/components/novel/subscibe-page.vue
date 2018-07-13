@@ -3,7 +3,7 @@
         <header-bar text="发现"></header-bar>
         <van-pull-refresh v-model="refresh" @refresh="onRefresh" class="refresh">
             <div v-for="(item,index) in newSubscribeList">
-                <div class="works-title-item">
+                <div class="works-title-item" @click="pushCommon(item)">
                     <div class="works-title">{{item.itemTitle}}</div>
                     <div class="works-des">{{item.description}}
                         <i class="iconfont icon-more" v-if="item.description!=''"></i>
@@ -37,6 +37,12 @@ export default {
     this.getData();
   },
   methods: {
+    pushCommon(item) {
+      this.$router.push({
+        path: "/common",
+        query: { argValue: item.argValue, argName: item.argName }
+      });
+    },
     push(comicId) {
       this.$router.push({
         path: "/comics-detail",
