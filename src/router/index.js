@@ -27,6 +27,8 @@ const CommentPage = (resolve) =>
   import ('@/components/novel/comment-page').then((module) => resolve(module))
 const AuthorPage = (resolve) =>
   import ('@/components/novel/author-page').then((module) => resolve(module))
+const SearchPage = (resolve) =>
+  import ('@/components/novel/search-page').then((module) => resolve(module))
 
 export default new Router({
   routes: [{
@@ -100,6 +102,14 @@ export default new Router({
       meta: {
         index: 1,
         keepAlive: false
+      }
+    },
+    {
+      path: '/search-page',
+      component: SearchPage,
+      meta: {
+        index: 1,
+        keepAlive: true
       }
     },
     {

@@ -3,7 +3,7 @@
     <div class="swipe-wrapper">
 
       <div class="header">
-        <img slot="icon" src="../../assets/img/search.png" class="search-img" />
+        <img slot="icon" src="../../assets/img/search.png" class="search-img" @click="searchClick"/>
       </div>
 
       <mt-swipe :auto="4000">
@@ -118,6 +118,9 @@ export default {
     },
     video() {
       this.$toast(video);
+    },
+    searchClick(){
+      this.$router.push({ path: "/search-page" });
     }
   }
 };
