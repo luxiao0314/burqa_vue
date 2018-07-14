@@ -8,6 +8,7 @@ Vue.use(Router)
 
 // 路由懒加载
 const Index = (resolve) =>
+
   import ('@/components/index').then((module) => resolve(module))
 const RankPage = (resolve) =>
   import ('@/components/novel/rank-page').then((module) => resolve(module))
