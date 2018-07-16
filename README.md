@@ -1,6 +1,34 @@
 # burqa_vue
 
 > vue test
+>
+> ## Screenshots
+>
+> ![image](https://github.com/luxiao0314/burqa-vue/screenshots/Screen Shot 2018-07-16 at 7.14.57 PM.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160252.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160306.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160317.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160329.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160340.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160353.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160402.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160414.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160427.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160503.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160517.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160528.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160541.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160552.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160602.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160613.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160633.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160633.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160645.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160656.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160705.png)
+> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160727.png)
+>
+> ## 
 
 ## Build Setup
 
