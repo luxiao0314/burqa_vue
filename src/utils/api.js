@@ -8,8 +8,8 @@ import { MessageBox } from 'mint-ui';
 NProgress.inc(0.2)
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
 
-// axios.defaults.baseURL = '/api'
-axios.defaults.baseURL = 'https://app.u17.com'
+axios.defaults.baseURL = '/api'
+// axios.defaults.baseURL = 'https://app.u17.com'
 axios.defaults.timeout = 10000
 axios.defaults.headers = {
   'X-Requested-With': 'XMLHttpRequest',
