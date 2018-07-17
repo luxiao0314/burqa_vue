@@ -2,34 +2,24 @@
 
 > vue test
 >
-> ## Screenshots
->
-> ![image](https://github.com/luxiao0314/burqa-vue/raw/master/screenshots/Screen_Shot_2018071671457.png)
->
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160252.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160306.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160317.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160329.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160340.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160353.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160402.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160414.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160427.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160503.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160517.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160528.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160541.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160552.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160602.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160613.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160633.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160633.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160645.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160656.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160705.png)
-> ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160727.png)
->
-> ## 
+
+
+
+## Screenshots
+
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671457.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671519.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671534.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671544.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671555.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671607.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671630.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671639.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671746.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671817.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671825.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071671844.png?raw=true)
+![Screen_Shot_2018071671457.png](https://github.com/luxiao0314/burqa_vue/blob/master/screenshots/Screen_Shot_2018071672007.png?raw=true)
 
 ## Build Setup
 
