@@ -4,7 +4,7 @@
 >
 > ## Screenshots
 >
-> ![image](https://github.com/luxiao0314/burqa-vue/screenshots/Screen_Shot_2018071671457.png)
+> ![image](https://github.com/luxiao0314/burqa-vue/raw/master/screenshots/Screen_Shot_2018071671457.png)
 >
 > ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160252.png)
 > ![image](https://github.com/luxiao0314/burqa/raw/burqa/screenshots/WX20170629-160306.png)
