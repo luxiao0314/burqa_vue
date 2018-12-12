@@ -8,7 +8,9 @@ import { MessageBox } from 'mint-ui';
 NProgress.inc(0.2)
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
 
+const isProdMode = Object.is(process.env.NODE_ENV, 'production')
 axios.defaults.baseURL = '/api'
+// axios.defaults.baseURL = isProdMode ? 'http://app.u17.com' : '/api'
 axios.defaults.timeout = 10000
 axios.defaults.headers = {
   'X-Requested-With': 'XMLHttpRequest',
