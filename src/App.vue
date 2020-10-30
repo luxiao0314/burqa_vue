@@ -6,24 +6,7 @@
 
 <script>
 export default {
-  name: "app",
-  data() {
-    return {
-      isIos: false,
-      transitionName: ""
-    };
-  },
-  create() {},
-  mounted() {
-    this.getDevice();
-  },
-  methods: {
-    getDevice() {
-      if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-        this.isIos = true;
-      }
-    }
-  },
+  
 };
 </script>
 
