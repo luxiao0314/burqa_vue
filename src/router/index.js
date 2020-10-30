@@ -1,120 +1,67 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
+import Vue from "vue";
+import Router from "vue-router";
+import MintUI from "mint-ui";
+import "mint-ui/lib/style.css";
 
-Vue.use(MintUI)
-Vue.use(Router)
+Vue.use(MintUI);
+Vue.use(Router);
 
-// 路由懒加载
-const Index = (resolve) =>
-  import ('@/components/index').then((module) => resolve(module))
-const RankPage = (resolve) =>
-  import ('@/components/novel/rank-page').then((module) => resolve(module))
-const VipPage = (resolve) =>
-  import ('@/components/novel/vip-page').then((module) => resolve(module))
-const SubscibePage = (resolve) =>
-  import ('@/components/novel/subscibe-page').then((module) => resolve(module))
-const CommonPage = (resolve) =>
-  import ('@/components/novel/common-page').then((module) => resolve(module))
-const ClassifyPage = (resolve) =>
-  import ('@/components/novel/classify-page').then((module) => resolve(module))
-const ComicsDetailPage = (resolve) =>
-  import ('@/components/novel/comics-detail-page').then((module) => resolve(module))
-const HtmlPage = (resolve) =>
-  import ('@/components/novel/html-page').then((module) => resolve(module))
-const CommentPage = (resolve) =>
-  import ('@/components/novel/comment-page').then((module) => resolve(module))
-const AuthorPage = (resolve) =>
-  import ('@/components/novel/author-page').then((module) => resolve(module))
-const SearchPage = (resolve) =>
-  import ('@/components/novel/search-page').then((module) => resolve(module))
+import Index from "@/components/index";
+import RankPage from "@/components/novel/rank-page";
+import VipPage from "@/components/novel/vip-page";
+import SubscibePage from "@/components/novel/subscibe-page";
+import CommonPage from "@/components/novel/common-page";
+import ClassifyPage from "@/components/novel/classify-page";
+import ComicsDetailPage from "@/components/novel/comics-detail-page";
+import HtmlPage from "@/components/novel/html-page";
+import CommentPage from "@/components/novel/comment-page";
+import AuthorPage from "@/components/novel/author-page";
+import SearchPage from "@/components/novel/search-page";
 
 export default new Router({
   routes: [{
-      path: '/',
-      name: 'index',
-      component: Index,
-      meta: {
-        index: 0,
-        keepAlive: true
-      }
+      path: "/",
+      component: Index
     },
     {
-      path: '/rank',
-      component: RankPage,
-      meta: {
-        index: 1,
-        keepAlive: true
-      }
+      path: "/rank",
+      component: RankPage
     },
     {
-      path: '/vip',
-      component: VipPage,
-      meta: {
-        index: 1,
-        keepAlive: true
-      }
+      path: "/vip",
+      component: VipPage
     },
     {
-      path: '/subscibe',
-      component: SubscibePage,
-      meta: {
-        index: 1,
-        keepAlive: true
-      }
+      path: "/subscibe",
+      component: SubscibePage
     },
     {
-      path: '/common',
-      component: CommonPage,
-      meta: {
-        index: 1,
-        keepAlive: false
-      }
+      path: "/common",
+      component: CommonPage
     },
     {
-      path: '/classify',
-      component: ClassifyPage,
-      meta: {
-        index: 1,
-        keepAlive: true
-      }
+      path: "/classify",
+      component: ClassifyPage
     },
     {
-      path: '/comics-detail',
-      component: ComicsDetailPage,
-      meta: {
-        index: 1,
-        keepAlive: false
-      }
+      path: "/comics-detail",
+      component: ComicsDetailPage
     },
     {
-      path: '/comment-page',
-      component: CommentPage,
-      meta: {
-        index: 1,
-        keepAlive: false
-      }
+      path: "/comment-page",
+      component: CommentPage
     },
     {
-      path: '/author-page',
-      component: AuthorPage,
-      meta: {
-        index: 1,
-        keepAlive: false
-      }
+      path: "/author-page",
+      component: AuthorPage
     },
     {
-      path: '/search-page',
-      component: SearchPage,
-      meta: {
-        index: 1,
-        keepAlive: true
-      }
+      path: "/search-page",
+      component: SearchPage
     },
     {
-      path: '/html-page',
+      path: "/html-page",
       component: HtmlPage
     }
   ]
-})
+});
