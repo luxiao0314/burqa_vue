@@ -1,9 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import MintUI from "mint-ui";
-import "mint-ui/lib/style.css";
-
-Vue.use(MintUI);
 Vue.use(Router);
 
 import Index from "@/components/index";

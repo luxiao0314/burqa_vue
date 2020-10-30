@@ -15,6 +15,11 @@ Vue.prototype.post = post;
 import '@/assets/scss/iconfont.scss'
 import '@/assets/ali-fonts/iconfont.css'
 
+//导入mintui
+import MintUI from "mint-ui";
+import "mint-ui/lib/style.css";
+Vue.use(MintUI);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
