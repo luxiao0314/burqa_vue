@@ -13,6 +13,8 @@ export default {
 <style>
 body {
   background-color: #ebebeb;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: Arial, Helvetica, sans-serif;

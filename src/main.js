@@ -16,15 +16,20 @@ import '@/assets/scss/iconfont.scss'
 import '@/assets/ali-fonts/iconfont.css'
 
 //导入mintui
-import MintUI from "mint-ui";
-import "mint-ui/lib/style.css";
-Vue.use(MintUI);
+import 'mint-ui/lib/style.css'
+import Mint from 'mint-ui';
+Vue.use(Mint);
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>',
+  render: h => h(App),
   data: {eventHub: new Vue()}
-})
+}).$mount('#app')
+
+
+
