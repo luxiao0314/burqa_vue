@@ -9,7 +9,7 @@
     "push": "npm run build && scp -r dist/* root@175.24.190.109:/usr/local/html/buka"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "better-scroll": "^1.12.4",
     "core-js": "^3.6.5",
     "create-keyframe-animation": "^0.1.0",
